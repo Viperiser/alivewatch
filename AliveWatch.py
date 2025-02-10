@@ -155,11 +155,11 @@ def report(maxyear, maxrank):
     diedsince.to_csv(filepath+todays_date()+'-Died_under_watch.csv', index=False, encoding='utf-8')
     added.to_csv(filepath+todays_date()+'-Alivewatch_by_date_added.csv', index=False, encoding='utf-8')
 
-    # Write the non-dated versions to the main directory
-    alive.to_csv('On_Alivewatch.csv', index=False, encoding='utf-8')
-    died.to_csv('Missed_by_alivewatch.csv', index=False, encoding='utf-8')
-    diedsince.to_csv('Died_under_watch.csv', index=False, encoding='utf-8')
-    added.to_csv('Alivewatch_by_date_added.csv', index=False, encoding='utf-8')
+    # Write the non-dated versions to the data directory
+    alive.to_csv('data/On_Alivewatch.csv', index=False, encoding='utf-8')
+    died.to_csv('data/Missed_by_alivewatch.csv', index=False, encoding='utf-8')
+    diedsince.to_csv('data/Died_under_watch.csv', index=False, encoding='utf-8')
+    added.to_csv('data/Alivewatch_by_date_added.csv', index=False, encoding='utf-8')
 
 def main():
     # Run update to update Alivewatch.csv.
