@@ -1,0 +1,38 @@
+Data Records
+The cross-verified dataset is available at the publicly accessible Sciences-Po Dataverse: https://doi.org/10.21410/7E4/RDAG3O50. Each entry is characterized by the following set of variables:
+
+name: full name of the individual;
+
+group_wikipedia_editions: partition category of the individual (from A (\textit{English} edition of \texttt{Wikipedia}) to F (\texttt{Wikidata} only) as described in Table 1.);
+
+birth: birth date of the individual (either reported or estimated);
+
+death: death date of the individual (either reported or estimated);
+
+level1_main_occ & level2_main_occ & level2_second_occ & level3_all_occ & level3_main_occ & freq_main_occ & freq_second_occ: set of seven variables for the main domain of influence of each individual in three layers (level 1: 6 groups; level 2: 15 sub-groups and the frequency we impute to the second domain if multiple domains); level 3: keywords collected to assign a domain;
+
+gender: gender of the individual;
+
+area_of_rattachment 1 and 2: first and if needed, second citizenship of the individual with a reference to the current country or to a former political regime;
+
+ranking_visib_5criteria: computed from 5 variables: number of Wikipedia editions, non-missing biographic information, length of pages, hits of pages and total number of external links. An alternative ranking based on the sum of the log of these variables plus one is in sum_visib_ln_5criteria;
+
+number_wiki_editions: number of different Wikipedia editions;
+
+non_missing_score: total number of non-missing items retrieved from Wikipedia or Wikidata for birth date, gender and domain of influence;
+
+total_count_words: total number of words in all biographies from Wikipedia;
+
+wiki_readers_2015_2018: average per year number of page views in all Wikipedia editions (information retrieved in 2015–2018);
+
+total_noccur_links: total number of external links (sources, references, etc.) from Wikidata;
+
+bplo1 & dplo1 & bpla1 & dpla1 & birthplace_name & deathplace_name: longitude, latitude and name of birthplace, deathplace. To be used with caution, the accuracy of these variables has not yet been verified.
+
+The exhaustive dataset is available at the publicly accessible Sciences-Po Dataverse: https://doi.org/10.21410/7E4/YLG6YR51 This dataset is not cross-verified and should not be used directly or under the full responsibility of users. It includes all the variables detailed above. The following five variables:
+
+exhaustive_level1_main_occ & exhaustive_level2_main_occ & exhaustive_level2_second_occ & exhaustive_area1_of_rattachment & exhaustive_area2_of_rattachment
+
+correspond to the variables
+
+level1_main_occ & level2_main_occ & level2_second_occ & area1_of_rattachment & area2_of_rattachment in the restricted dataset.
