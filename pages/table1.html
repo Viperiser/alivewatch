@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dataset 1</title>
+</head>
+<body>
+    <h1>Dataset 1</h1>
+    <table border="1">
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+        fetch('../data/file1.csv')  // Adjust the filename if needed
+            .then(response => response.text())
+            .then(data => {
+                let rows = data.split("\n");
+                let tableHead = document.getElementById("table-head");
+                let tableBody = document.getElementById("table-body");
+
+                rows.forEach((row, index) => {
+                    let cols = row.split(",");
+                    let tr = document.createElement("tr");
+
+                    cols.forEach(col => {
+                        let cell = document.createElement(index === 0 ? "th" : "td");
+                        cell.textContent = col;
+                        tr.appendChild(cell);
+                    });
+
+                    if (index === 0) tableHead.appendChild(tr);
+                    else tableBody.appendChild(tr);
+                });
+            });
+    </script>
+</body>
+</html>
