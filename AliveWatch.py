@@ -189,4 +189,4 @@ def main():
     report(maxyear, maxrank)
 
 # main()
-report(1940, 100000) # for testing
+report(1945, 100000) # for testing
