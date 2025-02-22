@@ -7,27 +7,54 @@ body {
     text-align: center;
 }
 
+.intro-text {
+    font-family: "Baskerville", "Perpetua", serif; /* Classic government typography */
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px; /* Space before the table */
+    color: #222; /* Slightly darker for more contrast */
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.5px; /* Slight spacing for a more printed look */
+}
+
+.logo {
+    display: block;
+    margin: 20px auto; /* Centers the image horizontally */
+    max-width: 300px; /* Adjust width if needed */
+}
+
 /* Style the table */
 table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
     background: white;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    border: 2px solid black; /* Vintage solid black border */
 }
 
 th, td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid black; /* Thin, crisp borders */
+    font-size: 16px; /* Slightly larger for readability */
 }
 
 th {
-    background-color: #007bff;
-    color: white;
+    background-color: #e0d8c5; /* A warm parchment-like 1930s color */
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid black; /* Emphasized header line */
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f5f3eb; /* Soft off-white for contrast */
+}
+
+tr:hover {
+    background-color: #d9d2bc; /* Faint vintage highlight */
+    transition: 0.3s; /* Smooth hover effect */
 }
 
 /* Make links stand out */
