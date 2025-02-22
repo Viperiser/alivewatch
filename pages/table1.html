@@ -11,27 +11,52 @@
     </table>
 
     <script>
-        fetch('../data/On_Alivewatch.csv')  
-            .then(response => response.text())
-            .then(data => {
-                let rows = data.split("\n");
-                let tableHead = document.getElementById("table-head");
-                let tableBody = document.getElementById("table-body");
+        fetch('../data/On_Alivewatch.csv')
+        .then(response => response.text())
+        .then(data => {
+            let rows = data.split("\n").map(row => row.trim()).filter(row => row.length > 0);
+            let tableHead = document.getElementById("table-head");
+            let tableBody = document.getElementById("table-body");
 
-                rows.forEach((row, index) => {
-                    let cols = row.split(",");
-                    let tr = document.createElement("tr");
+            rows.forEach((row, index) => {
+                // Proper CSV parsing: handles commas inside quotes
+                let cols = [];
+                let inQuotes = false;
+                let col = "";
 
-                    cols.forEach(col => {
-                        let cell = document.createElement(index === 0 ? "th" : "td");
-                        cell.textContent = col;
-                        tr.appendChild(cell);
-                    });
+                for (let char of row) {
+                    if (char === '"' && col.endsWith('"')) {
+                        // Double quote inside a quoted string (escaped)
+                        col = col.slice(0, -1) + '"';
+                    } else if (char === '"') {
+                        // Toggle inQuotes mode
+                        inQuotes = !inQuotes;
+                    } else if (char === "," && !inQuotes) {
+                        // If not inside quotes, it's a column separator
+                        cols.push(col.trim());
+                        col = "";
+                    } else {
+                        // Otherwise, add character to the current column
+                        col += char;
+                    }
+                }
+                cols.push(col.trim()); // Add the last column
 
-                    if (index === 0) tableHead.appendChild(tr);
-                    else tableBody.appendChild(tr);
+                // Remove surrounding quotes from each column
+                cols = cols.map(col => col.replace(/^"|"$/g, ''));
+
+                let tr = document.createElement("tr");
+
+                cols.forEach(col => {
+                    let cell = document.createElement(index === 0 ? "th" : "td");
+                    cell.textContent = col;
+                    tr.appendChild(cell);
                 });
+
+                if (index === 0) tableHead.appendChild(tr);
+                else tableBody.appendChild(tr);
             });
+        });
     </script>
 </body>
 </html>
