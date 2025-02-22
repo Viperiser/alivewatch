@@ -2,9 +2,19 @@
 # Then outputs still-living people meeting these criteria, in birth order, as an 'Alivewatch' csv
 
 # Libraries
+import datetime
 import requests
 import pandas
-import datetime
+import re
+
+def clean_name(name):
+    # Remove underscores and replace with spaces
+    name = name.replace("_", " ")
+    # Remove leading/trailing quotes
+    name = re.sub(r'^"|"$', '', name)
+    # Remove multiple spaces (if underscores were next to each other)
+    name = re.sub(r'\s+', ' ', name).strip()
+    return name
 
 # Date of death is property P570
 def deathdate(id):
@@ -118,8 +128,11 @@ def report(maxyear, maxrank):
 
     # Read in data
     data = pandas.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8')
-
     num = len(data)
+    
+    # Clean up names
+    data['name'] = data['name'].apply(clean_name)
+    
     # Create new dataframes
     alive = pandas.DataFrame(columns=['name','profession', 'age','ranking_visib_5criteria','date_added_to_alivewatch','risk_factor'])
     died = pandas.DataFrame(columns=['name','profession', 'birth','deathstamp'])
@@ -175,4 +188,5 @@ def main():
     # Then create reports
     report(maxyear, maxrank)
 
-main()
+# main()
+report(1940, 100000) # for testing
