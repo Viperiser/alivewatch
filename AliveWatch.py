@@ -4,7 +4,7 @@
 # Libraries
 import datetime
 import requests
-import pandas
+import pandas as pd
 import re
 
 def clean_name(name):
@@ -79,7 +79,7 @@ def compare_dates(date1, date2):
 
 # Update Alivewatch
 def update(maxyear, minrank, maxrank):
-    data = pandas.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8')
+    data = pd.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8')
     newdata = data.copy()
     num = len(data)
     deathstampnew = data['deathstamp'].copy()
@@ -127,27 +127,56 @@ def report(maxyear, maxrank):
     # - all the people who were added to alivewatch since the last update
 
     # Read in data
-    data = pandas.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8')
+    data = pd.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8', dtype = {'date_added_to_alivewatch': 'object'}, low_memory = False)
     num = len(data)
     
     # Clean up names
     data['name'] = data['name'].apply(clean_name)
     
     # Create new dataframes
-    alive = pandas.DataFrame(columns=['name','profession', 'age','ranking_visib_5criteria','date_added_to_alivewatch','risk_factor'])
-    died = pandas.DataFrame(columns=['name','profession', 'birth','deathstamp'])
-    diedsince = pandas.DataFrame(columns=['name','profession','birth','deathstamp', 'date_added_to_alivewatch'])
-    added = pandas.DataFrame(columns=['name','profession', 'birth','ranking_visib_5criteria','date_added_to_alivewatch'])
+    alive = pd.DataFrame(columns=['name','profession', 'age','ranking_visib_5criteria','date_added_to_alivewatch','risk_factor'])
+    died = pd.DataFrame(columns=['name','profession', 'birth','deathstamp'])
+    diedsince = pd.DataFrame(columns=['name','profession','birth','deathstamp', 'date_added_to_alivewatch'])
+    added = pd.DataFrame(columns=['name','profession', 'birth','ranking_visib_5criteria','date_added_to_alivewatch'])
     
     # Populate new dataframes
-    for i in range(num):
-        if data['deathstamp'][i] == ' ' and data['alivewatch?'][i] == 1: # still alive and on Alivewatch
-            alive = pandas.concat([alive, pandas.DataFrame([{'name':data['name'][i],'profession':data['level3_main_occ'][i], 'age':(int(todays_date()[0:4]) - data['birth'][i]),'ranking_visib_5criteria':data['ranking_visib_5criteria'][i],'date_added_to_alivewatch':data['date_added_to_alivewatch'][i]}])], ignore_index=True)
-        if data['deathstamp'][i] != ' ' and data['alivewatch?'][i] == 0: # dead, but not on Alivewatch
-            died = pandas.concat([died, pandas.DataFrame([{'name':data['name'][i],'profession':data['level3_main_occ'][i],'birth':data['birth'][i],'deathstamp':data['deathstamp'][i]}])], ignore_index=True)
-        if data['deathstamp'][i] != ' ' and data['alivewatch?'][i] == 1: # died under Alivewatch
-            diedsince = pandas.concat([diedsince, pandas.DataFrame([{'name':data['name'][i],'profession':data['level3_main_occ'][i],'birth':data['birth'][i],'deathstamp':data['deathstamp'][i], 'date_added_to_alivewatch':data['date_added_to_alivewatch'][i]}])], ignore_index=True)
+    alive_list = []
+    died_list = []
+    diedsince_list = []
 
+    # Populate lists instead of concatenating DataFrames in a loop
+    for i in range(num):
+        if data['deathstamp'][i] == ' ' and data['alivewatch?'][i] == 1:  # Still alive and on Alivewatch
+            alive_list.append({
+                'name': data['name'][i],
+                'profession': data['level3_main_occ'][i],
+                'age': int(todays_date()[0:4]) - data['birth'][i],
+                'ranking_visib_5criteria': data['ranking_visib_5criteria'][i],
+                'date_added_to_alivewatch': data['date_added_to_alivewatch'][i]
+            })
+
+        if data['deathstamp'][i] != ' ' and data['alivewatch?'][i] == 0:  # Dead, but not on Alivewatch
+            died_list.append({
+                'name': data['name'][i],
+                'profession': data['level3_main_occ'][i],
+                'birth': data['birth'][i],
+                'deathstamp': data['deathstamp'][i]
+            })
+
+        if data['deathstamp'][i] != ' ' and data['alivewatch?'][i] == 1:  # Died under Alivewatch
+            diedsince_list.append({
+                'name': data['name'][i],
+                'profession': data['level3_main_occ'][i],
+                'birth': data['birth'][i],
+                'deathstamp': data['deathstamp'][i],
+                'date_added_to_alivewatch': data['date_added_to_alivewatch'][i]
+            })
+
+    # Convert lists to DataFrames in one go (avoiding repeated concatenation)
+    alive = pd.DataFrame(alive_list)
+    died = pd.DataFrame(died_list)
+    diedsince = pd.DataFrame(diedsince_list)
+   
     # Add risk factor to Alivewatch
     riskfactors = []
     for i in range(len(alive)):
@@ -189,4 +218,5 @@ def main():
     report(maxyear, maxrank)
 
 # main()
+
 report(1940, 100000) # for testing
