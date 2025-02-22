@@ -232,7 +232,6 @@ def main():
     # Then create reports
     report(maxyear, maxrank)
 
-# main()
-
-report(1936, 100000)
+if __name__ == "__main__":
+    main()
 

@@ -57,6 +57,38 @@ tr:hover {
     transition: 0.3s; /* Smooth hover effect */
 }
 
+/* Darker, more sombre table for the 'Former AliveWatch Figures' page */
+.died-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #2c2c2c; /* Dark grey background */
+    color: #e0e0e0; /* Light grey text for contrast */
+    border: 2px solid #555; /* Softer, vintage-style border */
+}
+
+.died-table th, .died-table td {
+    padding: 10px;
+    border: 1px solid #555; /* Finer borders */
+    font-size: 16px;
+}
+
+.died-table th {
+    background-color: #444; /* Slightly lighter header */
+    color: #fff; /* White text for contrast */
+    text-transform: uppercase;
+    border-bottom: 2px solid #777;
+}
+
+.died-table tr:nth-child(even) {
+    background-color: #3a3a3a; /* Subtle row alternation */
+}
+
+.died-table tr:hover {
+    background-color: #484848; /* Gentle hover effect */
+    transition: 0.3s;
+}
+
 /* Make links stand out */
 a {
     color: #007bff;
