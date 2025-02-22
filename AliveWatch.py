@@ -190,6 +190,20 @@ def report(maxyear, maxrank):
     diedsince = diedsince.sort_values(by=['deathstamp'], ascending=False) # Died under Alivewatch, sorted by date of death - most recent first
     added = alive.copy().sort_values(by=['date_added_to_alivewatch'], ascending = False) # Alivewatch sorted by date added - most recent first
 
+    # Add priority number to 'alive'
+    alive.insert(0, 'priority', range(1, len(alive)+1))
+    
+    # Drop unnecessary columns
+    alive = alive.drop(columns=['risk_factor', 'ranking_visib_5criteria'])
+    diedsince = diedsince.drop(columns=['date_added_to_alivewatch'])
+    added = added.drop(columns=['ranking_visib_5criteria', 'risk_factor'])
+    
+    # Rename columns
+    alive = alive.rename(columns={'priority': 'Priority Rank', 'name': 'Name', 'profession': 'Profession', 'age': 'Age', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
+    diedsince = diedsince.rename(columns={'name': 'Name', 'profession': 'Profession', 'birth': 'Birth Year', 'deathstamp': 'Date of Death'})
+    died = died.rename(columns={'name': 'Name', 'profession': 'Profession', 'birth': 'Birth Year', 'deathstamp': 'Date of Death'})
+    added = added.rename(columns={'name': 'Name', 'age': 'Approximate Current Age', 'profession': 'Profession', 'birth': 'Birth Year', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
+
     # Write the date-named versions of the dataframes to csv in old_data
     filepath = 'old_data/'
     alive.to_csv(filepath+todays_date()+'-On_Alivewatch.csv', index=False, encoding='utf-8')
