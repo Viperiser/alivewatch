@@ -11,7 +11,7 @@ def clean_name(name):
     # Remove underscores and replace with spaces
     name = name.replace("_", " ")
     # Remove leading/trailing quotes
-    name = re.sub(r'^"|"$', '', name)
+    name = name.strip('"')
     # Remove multiple spaces (if underscores were next to each other)
     name = re.sub(r'\s+', ' ', name).strip()
     return name
