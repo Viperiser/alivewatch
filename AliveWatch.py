@@ -118,20 +118,21 @@ def update(maxyear, minrank, maxrank):
     newdata['date_added_to_alivewatch'] = dateaddednew
     newdata.to_csv('Alivewatch.csv.gz', index=False, compression = 'gzip', encoding='utf-8')
 
-# Report
 def report(maxyear, maxrank):
-    # Produce a spreadsheet with tabs for:
-    # - all the people who are still alive, on alivewatch, ranked by fame
-    # - all the people who died since the last update, but weren't on alivewatch
-    # - all the people who were on alivewatch but have died since the last update
-    # - all the people who were added to alivewatch since the last update
-
+    '''Produce a spreadsheet with tabs for:
+    - all the people who are still alive, on alivewatch, ranked by fame
+    - all the people who died since the last update, but weren't on alivewatch
+    - all the people who were on alivewatch but have died since the last update
+    - all the people who were added to alivewatch since the last update
+    '''
+    
     # Read in data
     data = pd.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8', dtype = {'date_added_to_alivewatch': 'object'}, low_memory = False)
     num = len(data)
     
-    # Clean up names
+    # Clean up values
     data['name'] = data['name'].apply(clean_name)
+    data['level3_main_occ'] = data['level3_main_occ'].str.replace("_", " ").str.title()
     
     # Create new dataframes
     alive = pd.DataFrame(columns=['name','profession', 'age','ranking_visib_5criteria','date_added_to_alivewatch','risk_factor'])
@@ -199,10 +200,10 @@ def report(maxyear, maxrank):
     added = added.drop(columns=['ranking_visib_5criteria', 'risk_factor'])
     
     # Rename columns
-    alive = alive.rename(columns={'priority': 'Priority Rank', 'name': 'Name', 'profession': 'Profession', 'age': 'Age', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
+    alive = alive.rename(columns={'priority': 'Priority Rank', 'name': 'Name', 'profession': 'Profession', 'age': 'Approximate Age', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
     diedsince = diedsince.rename(columns={'name': 'Name', 'profession': 'Profession', 'birth': 'Birth Year', 'deathstamp': 'Date of Death'})
     died = died.rename(columns={'name': 'Name', 'profession': 'Profession', 'birth': 'Birth Year', 'deathstamp': 'Date of Death'})
-    added = added.rename(columns={'name': 'Name', 'age': 'Approximate Current Age', 'profession': 'Profession', 'birth': 'Birth Year', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
+    added = added.rename(columns={'name': 'Name', 'age': 'Approximate Age', 'profession': 'Profession', 'birth': 'Birth Year', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
 
     # Write the date-named versions of the dataframes to csv in old_data
     filepath = 'old_data/'
@@ -231,4 +232,7 @@ def main():
     # Then create reports
     report(maxyear, maxrank)
 
-main()
+# main()
+
+report(1936, 100000)
+
