@@ -231,6 +231,4 @@ def main():
     # Then create reports
     report(maxyear, maxrank)
 
-# main()
-
-report(1940, 100000) # for testing
+main()
