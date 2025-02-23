@@ -17,7 +17,7 @@
     </table>
 
     <script>
-        fetch('../data/On_Alivewatch.csv')
+        fetch('data/On_Alivewatch.csv')
         .then(response => response.text())
         .then(data => {
             let rows = data.split("\n").map(row => row.trim()).filter(row => row.length > 0);
