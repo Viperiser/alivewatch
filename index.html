@@ -9,6 +9,8 @@
     <img src="images/20250222-Alivewatch Logo.png" alt="AliveWatch Logo" width="250" class = "logo">
     <h1>ALIVEWATCH</h1>
 
+    <p id="last-updated">Last update: Loading...</p>
+
     <p><a href="died.html">See the list of those who have passed</a></p>
     
     <table border="1">
@@ -64,5 +66,17 @@
             });
         });
     </script>
+
+    <script>
+        fetch('data/last_updated.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById("last-updated").textContent = "Last update: " + text;
+            })
+            .catch(error => {
+                console.error("Error loading last updated date:", error);
+            });
+    </script>
+
 </body>
 </html>
