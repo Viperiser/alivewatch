@@ -30,5 +30,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add data/*.csv
-          git commit -m "Automated update from GitHub Actions" || echo "No changes to commit"
+          git commit -m "Automated update from GitHub Actions" || exit 0
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
