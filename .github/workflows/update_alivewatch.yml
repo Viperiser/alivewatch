@@ -33,5 +33,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add data/*.csv
           git commit -m "Automated update from GitHub Actions" || exit 0
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main
-
+          git push origin main
