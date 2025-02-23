@@ -80,6 +80,10 @@ def compare_dates(date1, date2):
 
 # Update Alivewatch
 def update(maxyear, minrank, maxrank):
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open("data/last_updated.txt", "w") as f:
+        f.write(now)
+    
     data = pd.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8')
     newdata = data.copy()
     num = len(data)
