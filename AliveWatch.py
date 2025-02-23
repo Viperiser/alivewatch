@@ -3,9 +3,10 @@
 
 # Libraries
 import datetime
+import re
 import requests
 import pandas as pd
-import re
+
 
 def clean_name(name):
     # Remove underscores and replace with spaces
