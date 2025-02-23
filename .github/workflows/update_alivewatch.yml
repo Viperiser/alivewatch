@@ -1,0 +1,33 @@
+name: Update AliveWatch Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day at midnight UTC
+
+jobs:
+  update_data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  # If your script has dependencies, list them in requirements.txt
+
+      - name: Run AliveWatch Script
+        run: python AliveWatch.py  # Runs the script
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add data/*.csv
+          git commit -m "Automated update from GitHub Actions" || echo "No changes to commit"
+          git push
