@@ -6,6 +6,7 @@ import datetime
 import re
 import requests
 import pandas as pd
+import os
 
 
 def clean_name(name):
@@ -225,6 +226,15 @@ def report(maxyear, maxrank):
     died.to_csv('data/Missed_by_alivewatch.csv', index=False, encoding='utf-8')
     diedsince.to_csv('data/Died_under_watch.csv', index=False, encoding='utf-8')
     added.to_csv('data/Alivewatch_by_date_added.csv', index=False, encoding='utf-8')
+    
+    print("📂 Checking files in old_data/ before commit:")
+
+    # List all files in old_data/ and print them
+    files = os.listdir("old_data")
+    if files:
+        print("✅ Files in old_data/:", files)
+    else:
+        print("❌ No files found in old_data/")
 
 def main():
     # Run update to update Alivewatch.csv.
