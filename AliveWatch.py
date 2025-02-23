@@ -121,6 +121,7 @@ def update(maxyear, minrank, maxrank):
     newdata['deathstamp'] = deathstampnew
     newdata['alivewatch?'] = alivewatchnew
     newdata['date_added_to_alivewatch'] = dateaddednew
+    print("Saving updated Alivewatch file")
     newdata.to_csv('Alivewatch.csv.gz', index=False, compression = 'gzip', encoding='utf-8')
 
 def report(maxyear, maxrank):
@@ -211,6 +212,7 @@ def report(maxyear, maxrank):
     added = added.rename(columns={'name': 'Name', 'age': 'Approximate Age', 'profession': 'Profession', 'birth': 'Birth Year', 'date_added_to_alivewatch': 'Date Added to Alivewatch'})
 
     # Write the date-named versions of the dataframes to csv in old_data
+    print("Saving copies to the old data directory")
     filepath = 'old_data/'
     alive.to_csv(filepath+todays_date()+'-On_Alivewatch.csv', index=False, encoding='utf-8')
     died.to_csv(filepath+todays_date()+'-Missed_by_alivewatch.csv', index=False, encoding='utf-8')
@@ -218,6 +220,7 @@ def report(maxyear, maxrank):
     added.to_csv(filepath+todays_date()+'-Alivewatch_by_date_added.csv', index=False, encoding='utf-8')
 
     # Write the non-dated versions to the data directory
+    print("Saving the latest versions to the data directory")
     alive.to_csv('data/On_Alivewatch.csv', index=False, encoding='utf-8')
     died.to_csv('data/Missed_by_alivewatch.csv', index=False, encoding='utf-8')
     diedsince.to_csv('data/Died_under_watch.csv', index=False, encoding='utf-8')
