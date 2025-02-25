@@ -1,4 +1,6 @@
 Name,Profession,Birth Year,Date of Death
+Roberta Flack,Music,1939,2025-02-24
+Clint Hill (Secret Service),Secret Service Agent,1932,2025-02-21
 Jerry Butler,Music,1939,2025-02-20
 Alice Hirson,Actor,1929,2025-02-14
 Tom Robbins,Writer,1932,2025-02-09
@@ -31,14 +33,14 @@ Rocky Colavito,Baseball,1933,2024-12-10
 Marshall Brickman,Screenwriter,1939,2024-11-29
 Earl Holliman,Actor,1928,2024-11-25
 Barbara Taylor Bradford,Author,1933,2024-11-24
-Helen Gallagher,Actor,1926,2024-11-24
 Colin Renfrew,Archaeologist,1937,2024-11-24
+Helen Gallagher,Actor,1926,2024-11-24
 Fred R. Harris,Politician,1930,2024-11-23
 John Prescott,Politician,1938,2024-11-20
 Richard V. Allen,Advisor,1936,2024-11-16
 Roy Haynes,Drummer,1925,2024-11-12
-Thomas E. Kurtz,Computer Scientist,1928,2024-11-12
 Timothy West,Opera,1934,2024-11-12
+Thomas E. Kurtz,Computer Scientist,1928,2024-11-12
 Frank Auerbach,Painter,1931,2024-11-11
 Bobby Allison,Nascar,1937,2024-11-09
 Lou Donaldson,Composer,1926,2024-11-09
@@ -47,8 +49,8 @@ Quincy Jones,Conductor,1933,2024-11-03
 Jonathan Haze,Actor,1929,2024-11-02
 Paul Morrissey,Film,1938,2024-10-28
 Jeri Taylor,Screenwriter,1938,2024-10-24
-Leon Cooper,Physicist,1930,2024-10-23
 Jack Jones (singer),Singer,1938,2024-10-23
+Leon Cooper,Physicist,1930,2024-10-23
 Joseph Rykwert,Professor,1926,2024-10-18
 Andrew Schally,Physician,1926,2024-10-17
 Mitzi Gaynor,Actor,1931,2024-10-17
@@ -65,15 +67,15 @@ Benny Golson,Composer,1929,2024-09-21
 Daniel J. Evans,Politician,1925,2024-09-20
 Kathryn Crosby,Singer,1933,2024-09-20
 Ralph Abraham (mathematician),Mathematician,1936,2024-09-19
-Barbara Leigh-Hunt,Actor,1935,2024-09-16
 Peter Green (historian),Scholar,1924,2024-09-16
+Barbara Leigh-Hunt,Actor,1935,2024-09-16
 James Earl Jones,Actor,1931,2024-09-09
 Herbie Flowers,Songwriter,1938,2024-09-05
 James Darren,Actor,1936,2024-09-02
 Ronald Shusett,Screenwriter,1939,2024-08-29
 Alexander Goehr,Composer,1932,2024-08-26
-John Amos,Actor,1939,2024-08-21
 Bill Pascrell,Politician,1937,2024-08-21
+John Amos,Actor,1939,2024-08-21
 Phil Donahue,Film,1935,2024-08-18
 Gena Rowlands,Actor,1930,2024-08-14
 Charles Cyphers,Actor,1939,2024-08-04
@@ -84,8 +86,8 @@ James C. Scott,Anthropologist,1936,2024-07-19
 Bob Newhart,Actor,1929,2024-07-18
 James Sikking,Actor,1934,2024-07-13
 Joe Engle,Officer,1932,2024-07-10
-Jim Inhofe,Politician,1934,2024-07-09
 Maxine Singer,Biologist,1931,2024-07-09
+Jim Inhofe,Politician,1934,2024-07-09
 Vic Seixas,Player,1923,2024-07-05
 Robert Towne,Screenwriter,1934,2024-07-01
 Orlando Cepeda,Baseball,1937,2024-06-28
@@ -133,8 +135,8 @@ M. Emmet Walsh,Actor,1935,2024-03-19
 Thomas P. Stafford,Officer,1930,2024-03-18
 David Seidler,Screenwriter,1937,2024-03-16
 Byron Janis,Pianist,1928,2024-03-14
-Lucas Samaras,Sculptor,1936,2024-03-07
 Steve Lawrence,Actor,1935,2024-03-07
+Lucas Samaras,Sculptor,1936,2024-03-07
 Edward Bond,Writer,1934,2024-03-03
 Antoine Predock,Architect,1936,2024-03-02
 Iris Apfel,Designer,1921,2024-03-01
@@ -145,10 +147,10 @@ Steve Paxton,Choreographer,1939,2024-02-20
 Allen J. Bard,Chemist,1933,2024-02-11
 Michael Jayston,Actor,1935,2024-02-05
 Don Murray (actor),Film,1929,2024-02-02
-Chita Rivera,Dancer,1933,2024-01-30
 Jean Carnahan,Politician,1933,2024-01-30
-N. Scott Momaday,Novelist,1934,2024-01-24
+Chita Rivera,Dancer,1933,2024-01-30
 Carl Andre,Painter,1935,2024-01-24
+N. Scott Momaday,Novelist,1934,2024-01-24
 David Kahn (writer),Historian,1930,2024-01-23
 Arno Allan Penzias,Astronomer,1933,2024-01-22
 Donald Adamson,Biographer,1939,2024-01-18
