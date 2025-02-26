@@ -52,3 +52,8 @@ age and notability.
 - index.html: Displays current AliveWatch members
 - died.html: Shows individuals who have passed
 
+## To do
+
+- Show Alivewatch priority at time of death on the 'passed' list
+- Show change in priority (e.g. over the last month) on the Alivewatch list
+
