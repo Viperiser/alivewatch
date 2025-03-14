@@ -56,5 +56,4 @@ age and notability.
 
 - Show Alivewatch priority at time of death on the 'passed' list
 - Show change in priority (e.g. over the last month) on the Alivewatch list
-- Fix problem where death date is not updated if it only has the month (i.e. if the day is '0')
 
