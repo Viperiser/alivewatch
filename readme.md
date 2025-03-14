@@ -28,6 +28,10 @@ Alivewatch uses the dataset created for Laouenan M, Bhargava P, Eyméoud JB, Ger
 Plique G, Wasmer E. A cross-verified database of notable people, 3500BC-2018AD. Sci Data. 2022 Jun 9;9:290. 
 doi: 10.1038/s41597-022-01369-4. PMCID: PMC9184645.
 
+This is not updated, so Alivewatch will become gradually obsolete over a timeframe of years.
+In particular, old people who become famous in old age will be missed by Alivewatch. But in general,
+assuming that old famous people became famous when young, it will be good for a long time.
+
 'Notability' is based on the 'ranking_visib_5criteria' feature.
 
 ## Parameters
