@@ -88,31 +88,38 @@ def update(maxyear, minrank, maxrank):
     data = pd.read_csv('Alivewatch.csv.gz', compression = 'gzip', encoding='utf-8')
     newdata = data.copy()
     num = len(data)
-    deathstampnew = data['deathstamp'].copy()
-    alivewatchnew = data['alivewatch?'].copy()
-    dateaddednew = data['date_added_to_alivewatch'].copy()
+    deathstampnew = data['deathstamp'].copy() # Use existing date unless updated below
+    alivewatchnew = data['alivewatch?'].copy() # Use existing value unless updated below
+    dateaddednew = data['date_added_to_alivewatch'].copy() # Use existing date unless updated below
     for i in range(num):
         # check if died
-        if data['deathstamp'][i] != ' ':
+        if data['deathstamp'][i] != ' ': # They are already recorded as dead, so no further action required
             fate = 'Already dead'
+            # Find the day of the month recorded in their death date
+            deathday = int(data['deathstamp'][i][8:10])
+            if deathday ==0: # This means that the precise date was previously unknown, so update it
+                ded = deathdate(data['wikidata_code'][i])
+                if ded != '':
+                    deathstampnew[i] = ded
+                    fate = 'Died - date updated to '+ded
         else:
-            if data['birth'][i] > maxyear:
+            if data['birth'][i] > maxyear: # They are too young to be on Alivewatch, so no further action required
                 continue
             else:
-                if data['ranking_visib_5criteria'][i] < minrank:
+                if data['ranking_visib_5criteria'][i] < minrank: # They are too famous to be on Alivewatch, so no further action required
                     continue
                 else:
-                    if data['ranking_visib_5criteria'][i] > maxrank:
+                    if data['ranking_visib_5criteria'][i] > maxrank: # They are too obscure to be on Alivewatch, so no further action required
                         continue
-                    else:
-                        ded = deathdate(data['wikidata_code'][i])
-                        if ded == '':
-                            fate = 'Still alive - already on Alivewatch'
-                            alivewatchnew[i] = 1
-                            if data['alivewatch?'][i] == 0:
+                    else: # They are in the right age range and notability range to be on Alivewatch, and still alive
+                        ded = deathdate(data['wikidata_code'][i]) # Find their death date from Wikipedia
+                        if ded == '': # No death date found, so they are still alive
+                            fate = 'Still alive - already on Alivewatch' # Default fate, unless...
+                            alivewatchnew[i] = 1 
+                            if data['alivewatch?'][i] == 0: # Oops! They are not already on Alivewatch, so...
                                 dateaddednew[i] = todays_date()
-                                fate = 'Still alive - added to Alivewatch'
-                        else:
+                                fate = 'Still alive - added to Alivewatch' # ...they are now!
+                        else: # They do have a deathdate, so they have died
                             fate = 'Died under watch:'+ ded
                             deathstampnew[i] = ded
                             if data['alivewatch?'][i] == 0:
