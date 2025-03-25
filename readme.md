@@ -60,4 +60,5 @@ age and notability.
 
 - Show Alivewatch priority at time of death on the 'passed' list
 - Show change in priority (e.g. over the last month) on the Alivewatch list
+- Show how many days since the last death
 
