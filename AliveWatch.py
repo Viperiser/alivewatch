@@ -118,7 +118,7 @@ def compare_dates(date1, date2):
                 else:
                     return False
 
-def find_death_position(data, id, deathdate):
+def find_death_position(data, id):
     """
     Finds the position in Alivewatch at the time of death, for a given Wikidata ID.
     Returns the position as a string or 'n/k' if not found.
@@ -126,16 +126,59 @@ def find_death_position(data, id, deathdate):
     Parameters:
     data (DataFrame): The DataFrame containing Alivewatch data.
     id (str): The Wikidata ID of the person.
-    deathdate (str): The date of death in the format YYYY-MM-DD.
     
     Returns:
     str: The position at the time of death or 'n/k' if not found.
     """
+    # Get the death date for the given ID
+    deathdate = data[data["wikidata_code"] == id]['deathstamp'].values[0]
+    addeddate = data[data["wikidata_code"] == id]['date_added_to_alivewatch'].values[0]
+    print('Death date:', deathdate)
+    
+    # If no death date is found, return NaN - they haven't died yet
+    if deathdate == " ":
+        return float("nan")
     
     # If date of death is before 2024-01-03, return 'n/k' - this is when the ranking system was introduced
+    if compare_dates("2024-01-03", deathdate):
+        print('Ranking system introduced after death date, returning n/k')
+        return "n/k"
+    
+    # Find name corresponding to the ID in Alivewatch
+    name = data[data["wikidata_code"] == id]['name'].values[0]
+    namecolumn = 'name'
+    addedcolumn = 'date_added_to_alivewatch' 
+    print('Name:', name)
+    
     # If date of death is before 2025-02-22, use raw name, otherwise use cleaned name
+    if compare_dates(deathdate, "2025-02-21"):
+        name = clean_name(name)
+        print('Cleaned name:', name)
+        namecolumn = 'Name'
+        addedcolumn = 'Date Added to Alivewatch'
     
+    # Look for the latest file of the form 'YYYY-MM-DD-On_Alivewatch.csv' before the death date
+    files = os.listdir("old_data")
+    files = [f for f in files if re.match(r"\d{4}-\d{2}-\d{2}-On_Alivewatch\.csv", f)]
+    files = sorted(files, reverse=True)  # Sort files in reverse order
+    # Remove files that are on or after the death date
+    files = [f for f in files if compare_dates(deathdate, f[:10])]
+    print('Files:', files)
+    # If no files are found, return 'n/k'
+    if not files:
+        return "n/k"
+    # Read the latest file
+    latest_file = files[0]
+    df = pd.read_csv(os.path.join("old_data", latest_file))
     
+    # Check if the name is in the latest file
+    if name in df[namecolumn].values:
+        # Get the position of the name in the latest file - also use date added for disambiguation
+        position = df[(df[namecolumn] == name) & (df[addedcolumn] == addeddate)].index[0] + 1
+        return str(position)
+    else: # Name not found
+        print('Name not found in the latest file:', latest_file)
+        return "n/k"
 
 # Update Alivewatch
 def update(maxyear, minrank, maxrank):
