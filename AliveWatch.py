@@ -118,7 +118,7 @@ def compare_dates(date1, date2):
                 else:
                     return False
 
-def find_death_position(data, id):
+def find_death_position(data, id, death_date = None):
     """
     Finds the position in Alivewatch at the time of death, for a given Wikidata ID.
     Returns the position as a string or 'n/k' if not found.
@@ -126,12 +126,14 @@ def find_death_position(data, id):
     Parameters:
     data (DataFrame): The DataFrame containing Alivewatch data.
     id (str): The Wikidata ID of the person.
+    death_date (str): The date of death in the format YYYY-MM-DD. If None, uses the death date from the DataFrame.
     
     Returns:
     str: The position at the time of death or 'n/k' if not found.
     """
     # Get the death date for the given ID
-    death_date = data[data["wikidata_code"] == id]['deathstamp'].values[0]
+    if death_date is None:
+        death_date = data[data["wikidata_code"] == id]['deathstamp'].values[0]
     addeddate = data[data["wikidata_code"] == id]['date_added_to_alivewatch'].values[0]
     
     # If no death date is found, return empty string - they haven't died yet
@@ -259,6 +261,7 @@ def update(maxyear, minrank, maxrank):
                         else:  # They do have a deathdate, so they have died
                             fate = "Died under watch:" + ded
                             deathstampnew[i] = ded
+                            deathpositionnew[i] = find_death_position(data, data["wikidata_code"][i], ded)
                             if data["alivewatch?"][i] == 0:
                                 fate = "Died - missed by Alivewatch"
         if fate != "":
@@ -346,7 +349,7 @@ def report(maxyear, maxrank):
     died_list = []
     diedsince_list = []
 
-    # Populate lists instead of concatenating DataFrames in a loop
+    # Populate lists 
     for i in range(num):
         if (
             data["deathstamp"][i] == " " and data["alivewatch?"][i] == 1
@@ -383,10 +386,11 @@ def report(maxyear, maxrank):
                     "birth": data["birth"][i],
                     "deathstamp": data["deathstamp"][i],
                     "date_added_to_alivewatch": data["date_added_to_alivewatch"][i],
+                    "position_at_death": data["position_at_death"][i],
                 }
             )
 
-    # Convert lists to DataFrames in one go (avoiding repeated concatenation)
+    # Convert lists to DataFrames 
     alive = pd.DataFrame(alive_list)
     died = pd.DataFrame(died_list)
     diedsince = pd.DataFrame(diedsince_list)
@@ -439,6 +443,7 @@ def report(maxyear, maxrank):
             "profession": "Profession",
             "birth": "Birth Year",
             "deathstamp": "Date of Death",
+            "position_at_death": "Final Priority Rank",
         }
     )
     died = died.rename(
