@@ -118,6 +118,24 @@ def compare_dates(date1, date2):
                 else:
                     return False
 
+def find_death_position(data, id, deathdate):
+    """
+    Finds the position in Alivewatch at the time of death, for a given Wikidata ID.
+    Returns the position as a string or 'n/k' if not found.
+    
+    Parameters:
+    data (DataFrame): The DataFrame containing Alivewatch data.
+    id (str): The Wikidata ID of the person.
+    deathdate (str): The date of death in the format YYYY-MM-DD.
+    
+    Returns:
+    str: The position at the time of death or 'n/k' if not found.
+    """
+    
+    # If date of death is before 2024-01-03, return 'n/k' - this is when the ranking system was introduced
+    # If date of death is before 2025-02-22, use raw name, otherwise use cleaned name
+    
+    
 
 # Update Alivewatch
 def update(maxyear, minrank, maxrank):
@@ -149,7 +167,7 @@ def update(maxyear, minrank, maxrank):
         # check if died
         if (
             data["deathstamp"][i] != " "
-        ):  # They are already recorded as dead, so no further action required
+        ):  # They are already recorded as dead
             fate = "Already dead"
             # Find the day of the month recorded in their death date
             deathday = int(data["deathstamp"][i][8:10])
@@ -160,7 +178,11 @@ def update(maxyear, minrank, maxrank):
                 if ded != "":
                     deathstampnew[i] = ded
                     fate = "Died - date updated to " + ded
-        else:
+            
+            if data["alivewatch?"][i] == 1 and data["deathstamp"][i] != " " and data["position_at_death"] == "": # Need to add their position at time of death
+                continue  # PICK THIS UP HERE  
+        
+        else:  # They are still alive
             if (
                 data["birth"][i] > maxyear
             ):  # They are too young to be on Alivewatch, so no further action required
