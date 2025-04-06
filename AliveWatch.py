@@ -10,6 +10,15 @@ import os
 
 
 def clean_name(name):
+    '''
+    Cleans up the name of a person by removing underscores, leading/trailing quotes, and multiple spaces.
+    
+    Parameters:
+    name (str): The name of the person to be cleaned.
+    
+    Returns:
+    str: The cleaned name.
+    '''
     # Remove underscores and replace with spaces
     name = name.replace("_", " ")
     # Remove leading/trailing quotes
@@ -20,7 +29,16 @@ def clean_name(name):
 
 # Date of death is property P570
 def deathdate(id):
-    # Returns date of death if it exists
+    '''
+    Returns the date of death for a given Wikidata ID.
+    
+    Parameters:
+    id (str): The Wikidata ID of the person.
+    
+    Returns:
+    str: The date of death in the format YYYY-MM-DD, or an empty string if no date is found.
+    '''
+    # Get the date of death from Wikidata
     print(id)
     uri = "https://www.wikidata.org/w/api.php?action=wbgetentities&props=claims&ids="+id+"&format=json"
     r = requests.get(uri).json()
@@ -34,6 +52,15 @@ def deathdate(id):
     return datetime
 
 def todays_date():
+    '''
+    Returns today's date in the format YYYY-MM-DD.
+    
+    Parameters:
+    None
+    
+    Returns:
+    str: Today's date in the format YYYY-MM-DD.
+    '''
     # Returns today's date in format YYYY-MM-DD
     now = datetime.datetime.now()
     year = str(now.year)
@@ -46,13 +73,17 @@ def todays_date():
     return year+'-'+month+'-'+day
 
 def compare_dates(date1, date2):
-    # returns True if date1 is later than date2
-    # date1 and date2 are strings in format YYYY-MM-DD
-    # if date1 is later than date2, returns True
-    # if date1 is earlier than date2, returns False
-    # if date1 is the same as date2, returns False
-    # if date1 is blank, returns False
-    # if date2 is blank, returns True
+    '''
+    Compares two dates in the format YYYY-MM-DD. Returns True if date1 is later than date2.
+
+    Parameters:
+    date1 (str): The first date to compare.
+    date2 (str): The second date to compare.
+    
+    Returns:
+    bool: True if date1 is later than date2, False otherwise. If date1 is blank, returns False. If date2 is blank, returns True.    
+    
+    '''
     if date1 == '':
         return False
     elif date2 == '':
@@ -81,6 +112,18 @@ def compare_dates(date1, date2):
 
 # Update Alivewatch
 def update(maxyear, minrank, maxrank):
+    '''
+    Updates Alivewatch.csv with the latest death dates from Wikipedia.
+    Also updates the last updated date in last_updated.txt.
+    
+    Parameters:
+    maxyear (int): The maximum year of birth for people to be included in Alivewatch.
+    minrank (int): The minimum notability rank for people to be included in Alivewatch.
+    maxrank (int): The maximum notability rank for people to be included in Alivewatch.
+    
+    Returns:
+    None    
+    '''
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open("data/last_updated.txt", "w") as f:
         f.write(now)
@@ -133,11 +176,20 @@ def update(maxyear, minrank, maxrank):
     newdata.to_csv('Alivewatch.csv.gz', index=False, compression = 'gzip', encoding='utf-8')
 
 def report(maxyear, maxrank):
-    '''Produce a spreadsheet with tabs for:
-    - all the people who are still alive, on alivewatch, ranked by fame
+    '''
+    Produces a set of csv files from Alivewatch.csv, including:
+    - all the people who are still alive, on alivewatch, ranked by risk factor
     - all the people who died since the last update, but weren't on alivewatch
     - all the people who were on alivewatch but have died since the last update
     - all the people who were added to alivewatch since the last update
+    Saves these files in the data directory and in the old_data directory with a date stamp.
+    
+    Parameters:
+    maxyear (int): The maximum year of birth for people to be included in Alivewatch.
+    maxrank (int): The maximum notability rank for people to be included in Alivewatch.
+    
+    Returns:
+    None
     '''
     
     # Read in data
@@ -244,17 +296,25 @@ def report(maxyear, maxrank):
         print("❌ No files found in old_data/")
 
 def main():
-    # Run update to update Alivewatch.csv.
-    # Then run report to produce reports.
-    # Parameters 
+    '''
+    Main function to run the update and report functions. Updates the Alivewatch.csv file and generates reports.
+    
+    Parameters:
+    None
+    
+    Returns:
+    None
+    '''
+    
+    # Set parameters
     maxyear = datetime.datetime.now().year - 85
     minrank = 1000 # minimum notability rank (excludes people who are too famous)
     maxrank = 100000 # maximum notability rank (excludes people who are too obscure)
 
-    # Run to update Alivewatch from wikipedia
+    # Update Alivewatch from wikipedia
     update(maxyear, minrank, maxrank)
 
-    # Then create reports
+    # Create reports
     report(maxyear, maxrank)
 
 if __name__ == "__main__":
