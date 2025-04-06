@@ -131,29 +131,25 @@ def find_death_position(data, id):
     str: The position at the time of death or 'n/k' if not found.
     """
     # Get the death date for the given ID
-    deathdate = data[data["wikidata_code"] == id]['deathstamp'].values[0]
+    death_date = data[data["wikidata_code"] == id]['deathstamp'].values[0]
     addeddate = data[data["wikidata_code"] == id]['date_added_to_alivewatch'].values[0]
-    print('Death date:', deathdate)
     
-    # If no death date is found, return NaN - they haven't died yet
-    if deathdate == " ":
-        return float("nan")
+    # If no death date is found, return empty string - they haven't died yet
+    if death_date == " ":
+        return ""
     
     # If date of death is before 2024-01-03, return 'n/k' - this is when the ranking system was introduced
-    if compare_dates("2024-01-03", deathdate):
-        print('Ranking system introduced after death date, returning n/k')
+    if compare_dates("2024-01-03", death_date):
         return "n/k"
     
     # Find name corresponding to the ID in Alivewatch
     name = data[data["wikidata_code"] == id]['name'].values[0]
     namecolumn = 'name'
     addedcolumn = 'date_added_to_alivewatch' 
-    print('Name:', name)
     
     # If date of death is before 2025-02-22, use raw name, otherwise use cleaned name
-    if compare_dates(deathdate, "2025-02-21"):
+    if compare_dates(death_date, "2025-02-21"):
         name = clean_name(name)
-        print('Cleaned name:', name)
         namecolumn = 'Name'
         addedcolumn = 'Date Added to Alivewatch'
     
@@ -162,8 +158,7 @@ def find_death_position(data, id):
     files = [f for f in files if re.match(r"\d{4}-\d{2}-\d{2}-On_Alivewatch\.csv", f)]
     files = sorted(files, reverse=True)  # Sort files in reverse order
     # Remove files that are on or after the death date
-    files = [f for f in files if compare_dates(deathdate, f[:10])]
-    print('Files:', files)
+    files = [f for f in files if compare_dates(death_date, f[:10])]
     # If no files are found, return 'n/k'
     if not files:
         return "n/k"
@@ -171,13 +166,19 @@ def find_death_position(data, id):
     latest_file = files[0]
     df = pd.read_csv(os.path.join("old_data", latest_file))
     
+    # If the date of the latest file is before 2024-01-05, convert the date format from a string YYYY-MM-DD to a string DD/MM/YYYY - this is when I changed the date format
+    if compare_dates("2024-01-05", latest_file[:10]):
+        day = latest_file[8:10]
+        month = latest_file[5:7]
+        year = latest_file[0:4]
+        addeddate = f'{day}/{month}/{year}'
+    
     # Check if the name is in the latest file
     if name in df[namecolumn].values:
         # Get the position of the name in the latest file - also use date added for disambiguation
         position = df[(df[namecolumn] == name) & (df[addedcolumn] == addeddate)].index[0] + 1
         return str(position)
     else: # Name not found
-        print('Name not found in the latest file:', latest_file)
         return "n/k"
 
 # Update Alivewatch
@@ -195,7 +196,7 @@ def update(maxyear, minrank, maxrank):
     None
     """
 
-    data = pd.read_csv("Alivewatch.csv.gz", compression="gzip", encoding="utf-8")
+    data = pd.read_csv("Alivewatch.csv.gz", na_filter = False, compression="gzip", encoding="utf-8")
     newdata = data.copy()
     num = len(data)
     deathstampnew = data["deathstamp"].copy()  # Use existing date unless updated below
@@ -205,6 +206,7 @@ def update(maxyear, minrank, maxrank):
     dateaddednew = data[
         "date_added_to_alivewatch"
     ].copy()  # Use existing date unless updated below
+    deathpositionnew = data["position_at_death"].copy()  # Use existing value unless updated below
     
     for i in range(num):
         # check if died
@@ -222,8 +224,10 @@ def update(maxyear, minrank, maxrank):
                     deathstampnew[i] = ded
                     fate = "Died - date updated to " + ded
             
-            if data["alivewatch?"][i] == 1 and data["deathstamp"][i] != " " and data["position_at_death"] == "": # Need to add their position at time of death
-                continue  # PICK THIS UP HERE  
+            if data["alivewatch?"][i] == 1 and data["deathstamp"][i] != " " and data["position_at_death"][i] == "": # Need to add their position at time of death
+                death_position = find_death_position(data, data["wikidata_code"][i])
+                deathpositionnew[i] = death_position
+                fate = "Already dead - position at death updated to " + death_position
         
         else:  # They are still alive
             if (
@@ -262,6 +266,7 @@ def update(maxyear, minrank, maxrank):
     newdata["deathstamp"] = deathstampnew
     newdata["alivewatch?"] = alivewatchnew
     newdata["date_added_to_alivewatch"] = dateaddednew
+    newdata["position_at_death"] = deathpositionnew
     print("Saving updated Alivewatch file")
     newdata.to_csv(
         "Alivewatch.csv.gz", index=False, compression="gzip", encoding="utf-8"
@@ -293,6 +298,7 @@ def report(maxyear, maxrank):
     # Read in data
     data = pd.read_csv(
         "Alivewatch.csv.gz",
+        na_filter=False,
         compression="gzip",
         encoding="utf-8",
         dtype={"date_added_to_alivewatch": "object"},
@@ -481,16 +487,6 @@ def report(maxyear, maxrank):
     died.to_csv("data/Missed_by_alivewatch.csv", index=False, encoding="utf-8")
     diedsince.to_csv("data/Died_under_watch.csv", index=False, encoding="utf-8")
     added.to_csv("data/Alivewatch_by_date_added.csv", index=False, encoding="utf-8")
-
-    print("📂 Checking files in old_data/ before commit:")
-
-    # List all files in old_data/ and print them
-    files = os.listdir("old_data")
-    if files:
-        print("✅ Files in old_data/:", files)
-    else:
-        print("❌ No files found in old_data/")
-
 
 def main():
     """
