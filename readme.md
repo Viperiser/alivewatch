@@ -58,6 +58,6 @@ age and notability.
 
 ## To do
 
-- Show change in priority (e.g. over the last month) on the Alivewatch list
 - Show how many days since the last death
+- Change the logo for the death page
 
