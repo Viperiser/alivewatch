@@ -27,6 +27,24 @@ def clean_name(name):
     name = re.sub(r"\s+", " ", name).strip()
     return name
 
+def render_movement(movement):
+    """
+    Renders the movement of a person in a human-readable format.
+
+    Parameters:
+    movement (str): The movement of the person.
+
+    Returns:
+    str: The movement in a nice format.
+    """
+    if movement == "new entry":
+        return "🆕"
+    elif int(movement) > 0:
+        return "▼" + str(int(movement))
+    elif int(movement) < 0:
+        return "▲" + str(abs(int(movement)))
+    else:
+        return "–"
 
 # Date of death is property P570
 def deathdate(id):
@@ -441,7 +459,6 @@ def report(maxyear, maxrank):
     # Find the most recent file
     files = sorted(files, reverse=True)  # Sort files in reverse order
     file = files[0]  # Get the most recent file
-    print(file)
     # Read the file
     alivewatch_last_year = pd.read_csv(os.path.join("old_data", file))
     namefield = "Name"
@@ -461,13 +478,13 @@ def report(maxyear, maxrank):
                 & (alivewatch_last_year[datefield] == alive["date_added_to_alivewatch"][i])
             ].index[0] + 1
             movement_in_last_year.append(
-                str(int(alive["priority"][i]) - int(position))
+                render_movement(str(int(alive["priority"][i]) - int(position)))
             )
         else:  # Name not found
-            movement_in_last_year.append("new entry")
+            movement_in_last_year.append(render_movement("new entry"))
     
     # Add the positions to the dataframe
-    alive.insert(6, "movement_in_last_year", movement_in_last_year)
+    alive.insert(5, "movement_in_last_year", movement_in_last_year)
 
     # Rename columns
     alive = alive.rename(
