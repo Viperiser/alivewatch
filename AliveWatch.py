@@ -427,6 +427,48 @@ def report(maxyear, maxrank):
     diedsince = diedsince.drop(columns=["date_added_to_alivewatch"])
     added = added.drop(columns=["ranking_visib_5criteria", "risk_factor"])
 
+    # Now find each person's position this time last year
+    # Find the date one year ago
+    alive.reset_index(drop=True, inplace=True)  # Reset index to avoid issues with indexing
+    movement_in_last_year = []
+    lastyear = datetime.datetime.now() - datetime.timedelta(days=365)
+    lastyear = lastyear.strftime("%Y-%m-%d")
+    # Find the latest file of the form 'YYYY-MM-DD-On_Alivewatch.csv' before lastyear
+    files = os.listdir("old_data")
+    files = [f for f in files if re.match(r"\d{4}-\d{2}-\d{2}-On_Alivewatch\.csv", f)]
+    # Remove files that are later than lastyear
+    files = [f for f in files if not compare_dates(f[:10], lastyear)]
+    # Find the most recent file
+    files = sorted(files, reverse=True)  # Sort files in reverse order
+    file = files[0]  # Get the most recent file
+    print(file)
+    # Read the file
+    alivewatch_last_year = pd.read_csv(os.path.join("old_data", file))
+    namefield = "Name"
+    datefield = "Date Added to Alivewatch"
+    # If lastyear is before 2025-02-22, clean the names in the file
+    if compare_dates("2025-02-22", lastyear):
+        alivewatch_last_year["name"] = alivewatch_last_year["name"].apply(clean_name)
+        namefield = "name"
+        datefield = "date_added_to_alivewatch"
+    # Now match each of the names in alive to the names in alivewatch_last_year, along with date added (for disambiguation)
+    for i in range(len(alive)):
+        # Check if the name is in the last year's file
+        if alive["name"][i] in alivewatch_last_year["name"].values:
+            # Get the position of the name in last year's file - also use date added for disambiguation
+            position = alivewatch_last_year[
+                (alivewatch_last_year[namefield] == alive["name"][i])
+                & (alivewatch_last_year[datefield] == alive["date_added_to_alivewatch"][i])
+            ].index[0] + 1
+            movement_in_last_year.append(
+                str(int(alive["priority"][i]) - int(position))
+            )
+        else:  # Name not found
+            movement_in_last_year.append("new entry")
+    
+    # Add the positions to the dataframe
+    alive.insert(6, "movement_in_last_year", movement_in_last_year)
+
     # Rename columns
     alive = alive.rename(
         columns={
@@ -435,6 +477,7 @@ def report(maxyear, maxrank):
             "profession": "Profession",
             "age": "Approximate Age",
             "date_added_to_alivewatch": "Date Added to Alivewatch",
+            "movement_in_last_year": "Change Since Last Year",
         }
     )
     diedsince = diedsince.rename(
@@ -510,7 +553,7 @@ def main():
     maxrank = 100000  # maximum notability rank (excludes people who are too obscure)
 
     # Update Alivewatch from wikipedia
-    update(maxyear, minrank, maxrank)
+    # update(maxyear, minrank, maxrank)
 
     # Create reports
     report(maxyear, maxrank)
