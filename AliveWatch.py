@@ -570,7 +570,7 @@ def main():
     maxrank = 100000  # maximum notability rank (excludes people who are too obscure)
 
     # Update Alivewatch from wikipedia
-    # update(maxyear, minrank, maxrank)
+    update(maxyear, minrank, maxrank)
 
     # Create reports
     report(maxyear, maxrank)
