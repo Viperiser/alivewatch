@@ -5,9 +5,10 @@
 import datetime
 import re
 import os
+import json
 import requests
 import pandas as pd
-import json
+import time
 
 def clean_name(name):
     """
@@ -64,6 +65,7 @@ def deathdate(id):
     )
 
     try:
+        time.sleep(0.5)  # wait 0.5 seconds before each request
         r = requests.get(uri, timeout=10)
         if r.status_code != 200:
             print(f"Bad response ({r.status_code}) for {id}")
