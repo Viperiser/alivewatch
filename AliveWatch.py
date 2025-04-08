@@ -7,7 +7,7 @@ import re
 import os
 import requests
 import pandas as pd
-
+import json
 
 def clean_name(name):
     """
@@ -57,22 +57,36 @@ def deathdate(id):
     Returns:
     str: The date of death in the format YYYY-MM-DD, or an empty string if no date is found.
     """
-    # Get the date of death from Wikidata
     uri = (
         "https://www.wikidata.org/w/api.php?action=wbgetentities&props=claims&ids="
         + id
         + "&format=json"
     )
-    r = requests.get(uri).json()
+
+    try:
+        r = requests.get(uri, timeout=10)
+        if r.status_code != 200:
+            print(f"Bad response ({r.status_code}) for {id}")
+            return ""
+        r_json = json.loads(r.content.decode("utf-8"))
+    except json.JSONDecodeError:
+        print(f"Failed to decode JSON for {id}")
+        return ""
+    except Exception as e:
+        print(f"Error getting data for {id}: {e}")
+        return ""
+
     datetime = ""
-    if "P570" in r["entities"][id]["claims"]:
-        datetime = r["entities"][id]["claims"]["P570"][0]["mainsnak"]["datavalue"][
-            "value"
-        ]["time"]
-    # extract date from datetime
-    if datetime != "":
-        datetime = datetime[1:11]
-    # note this is already in format YYYY-MM-DD
+    try:
+        if "P570" in r_json["entities"][id]["claims"]:
+            datetime = r_json["entities"][id]["claims"]["P570"][0]["mainsnak"]["datavalue"][
+                "value"
+            ]["time"]
+            datetime = datetime[1:11]  # remove leading "+" and trim to YYYY-MM-DD
+    except Exception as e:
+        print(f"Error extracting date for {id}: {e}")
+        return ""
+
     return datetime
 
 
