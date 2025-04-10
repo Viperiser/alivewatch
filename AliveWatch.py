@@ -64,33 +64,33 @@ def deathdate(id):
         + "&format=json"
     )
 
-    try:
-        time.sleep(0.5)  # wait 0.5 seconds before each request
-        r = requests.get(uri, timeout=10)
-        if r.status_code != 200:
-            print(f"Bad response ({r.status_code}) for {id}")
+    for attempt in range(5):  # Try up to 5 times
+        try:
+            r = requests.get(uri, timeout=10)
+            if r.status_code == 429:
+                wait = 10 * (attempt + 1)
+                print(f"⚠️ Rate limited for {id}, waiting {wait} seconds...")
+                time.sleep(wait)
+                continue
+            elif r.status_code != 200:
+                print(f"⚠️ Bad response ({r.status_code}) for {id}")
+                return ""
+
+            r_json = json.loads(r.content.decode("utf-8"))
+            if "P570" in r_json["entities"][id]["claims"]:
+                dt = r_json["entities"][id]["claims"]["P570"][0]["mainsnak"]["datavalue"]["value"]["time"]
+                return dt[1:11]  # trim to YYYY-MM-DD
             return ""
-        r_json = json.loads(r.content.decode("utf-8"))
-    except json.JSONDecodeError:
-        print(f"Failed to decode JSON for {id}")
-        return ""
-    except Exception as e:
-        print(f"Error getting data for {id}: {e}")
-        return ""
 
-    datetime = ""
-    try:
-        if "P570" in r_json["entities"][id]["claims"]:
-            datetime = r_json["entities"][id]["claims"]["P570"][0]["mainsnak"]["datavalue"][
-                "value"
-            ]["time"]
-            datetime = datetime[1:11]  # remove leading "+" and trim to YYYY-MM-DD
-    except Exception as e:
-        print(f"Error extracting date for {id}: {e}")
-        return ""
+        except json.JSONDecodeError:
+            print(f"❌ JSON decode error for {id}")
+            return ""
+        except Exception as e:
+            print(f"❌ General error for {id}: {e}")
+            return ""
 
-    return datetime
-
+    print(f"❌ Failed to get data for {id} after 5 attempts.")
+    return ""
 
 def todays_date():
     """
@@ -299,7 +299,7 @@ def update(maxyear, minrank, maxrank):
                             if data["alivewatch?"][i] == 0:
                                 fate = "Died - missed by Alivewatch"
         if fate != "":
-            print("Processing ", str(i) + "/" + str(num), data["name"][i], fate)
+            print("Processed ", str(i) + "/" + str(num), data["name"][i], fate)
     newdata["deathstamp"] = deathstampnew
     newdata["alivewatch?"] = alivewatchnew
     newdata["date_added_to_alivewatch"] = dateaddednew
