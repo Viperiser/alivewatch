@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt  # If your script has dependencies, list them in requirements.txt
 
       - name: Run AliveWatch Script
-        run: python AliveWatch.py  # Runs the script
+        run: python -u AliveWatch.py  # Runs the script
 
       - name: Commit and Push Changes
         env:
