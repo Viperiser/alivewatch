@@ -64,6 +64,8 @@ def deathdate(id):
         + "&format=json"
     )
 
+    time.sleep(1)
+
     for attempt in range(5):  # Try up to 5 times
         try:
             r = requests.get(uri, timeout=10)
