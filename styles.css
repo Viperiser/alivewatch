@@ -7,6 +7,11 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-size: 2.5em;    /* adjust this number to taste */
+    font-weight: bold;   /* optional, to make it stand out more */
+  }
+  
 .intro-text {
     font-family: "Baskerville", "Perpetua", serif; /* Classic government typography */
     font-size: 18px;
@@ -99,3 +104,20 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.handwritten {
+    font-family: 'Patrick Hand', cursive;
+    /* optional extras for flair: */
+    /* font-size: 1.4em; */
+    /* color: #333; */
+  }
+
+  #days-since-value {
+    display: inline-block;               /* so padding and box show */
+    background-color: #FFEB3B;            /* classic Post‑it yellow */
+    padding: 0.2em 0.5em;                 /* space around the number */
+    border: 1px solid #E0C000;            /* a slightly darker edge */
+    border-radius: 0.2em;                 /* soften the corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); /* subtle “lifted” shadow */
+    transform: rotate(-1deg);             /* gives it that casually stuck look */
+  }

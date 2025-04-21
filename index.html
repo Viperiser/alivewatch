@@ -4,10 +4,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <title>AliveWatch</title>
     <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+        rel="stylesheet"
+    />
 </head>
 <body>
-    <img src="images/20250421-Alive.png" alt="AliveWatch Logo" width="250" class = "logo">
+    <img src="images/yes.png" alt="AliveWatch Logo" width="250" class = "logo">
     <h1>ALIVEWATCH</h1>
+
+    <p>
+        Days since last Alivewatch death:
+        <span id="days-since-value" class="handwritten">Loading…</span>
+    </p>
 
     <p id="last-updated">Last update: Loading...</p>
 
@@ -76,6 +86,17 @@
             .catch(error => {
                 console.error("Error loading last updated date:", error);
             });
+    </script>
+
+    <script>
+    fetch('data/days_since_last_death.txt')
+        .then(r => r.text())
+        .then(txt => {
+        document
+            .getElementById('days-since-value')
+            .textContent = txt.trim();
+        })
+        .catch(e => console.error('Error loading days-since value:', e));
     </script>
 
 </body>
