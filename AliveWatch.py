@@ -542,6 +542,15 @@ def report(maxyear, maxrank):
         }
     )
 
+    # Find the date of the latest death in the diedsince dataframe - this will be the first row because it's sorted by date of death
+    latest_death_date = diedsince["Date of Death"].values[0]
+    # Find how many days ago this was
+    latest_death_date = datetime.datetime.strptime(latest_death_date, "%Y-%m-%d")
+    days_ago = (datetime.datetime.now() - latest_death_date).days
+    # Save it to a text file called 'days_since_last_death.txt'
+    with open("data/days_since_last_death.txt", "w") as f:
+        f.write(str(days_ago))
+
     # Write the date-named versions of the dataframes to csv in old_data
     print("Saving copies to the old data directory")
     filepath = "old_data/"
@@ -588,7 +597,7 @@ def main():
     maxrank = 100000  # maximum notability rank (excludes people who are too obscure)
 
     # Update Alivewatch from wikipedia
-    update(maxyear, minrank, maxrank)
+    # update(maxyear, minrank, maxrank)
 
     # Create reports
     report(maxyear, maxrank)
