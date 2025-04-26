@@ -109,7 +109,7 @@ a:hover {
     font-family: 'Patrick Hand', cursive;
     /* optional extras for flair: */
     /* font-size: 1.4em; */
-    /* color: #333; */
+    color: #2715c9;
   }
 
   #days-since-value {
@@ -117,7 +117,7 @@ a:hover {
     background-color: #FFEB3B;            /* classic Post‑it yellow */
     padding: 0.2em 0.5em;                 /* space around the number */
     border: 1px solid #E0C000;            /* a slightly darker edge */
-    border-radius: 0.2em;                 /* soften the corners */
+    border-radius: 0.0em;                 /* soften the corners */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); /* subtle “lifted” shadow */
-    transform: rotate(-1deg);             /* gives it that casually stuck look */
+    transform: rotate(-3deg);             /* gives it that casually stuck look */
   }
