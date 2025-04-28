@@ -59,6 +59,5 @@ age and notability.
 
 ## To do
 
-- Show how many days since the last death
-- Change the logo for the death page
+- None
 
