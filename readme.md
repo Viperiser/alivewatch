@@ -40,7 +40,8 @@ The system filters individuals using the following criteria:
 - Maximum birth year: current year minus 85
 - Notability ('ranking_visib_5criteria) rank range: 1,000 - 100,000
   - Lower bound prevents tracking extremely famous individuals
-  - Upper bound excludes less notable persons
+  - Upper bound excludes less notable persons.
+
 The prioritisation in the list is then calculated as a function of both
 age and notability.
 
