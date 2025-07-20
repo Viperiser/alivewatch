@@ -6,9 +6,22 @@ import datetime
 import re
 import os
 import json
+import time
 import requests
 import pandas as pd
-import time
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Import Wikidata credentials from environment variables
+WD_USERNAME = os.environ.get("WD_USERNAME")
+WD_PASSWORD = os.environ.get("WD_PASSWORD")
+
+if WD_USERNAME is None or WD_PASSWORD is None:
+    raise RuntimeError(
+        "Missing Wikidata credentials. Set them in .env or GitHub secrets."
+    )
+
 
 def clean_name(name):
     """
@@ -28,6 +41,7 @@ def clean_name(name):
     name = re.sub(r"\s+", " ", name).strip()
     return name
 
+
 def render_movement(movement):
     """
     Renders the movement of a person in a human-readable format.
@@ -46,6 +60,7 @@ def render_movement(movement):
         return "▲" + str(abs(int(movement)))
     else:
         return "–"
+
 
 # Date of death is property P570
 def deathdate(id):
@@ -80,7 +95,9 @@ def deathdate(id):
 
             r_json = json.loads(r.content.decode("utf-8"))
             if "P570" in r_json["entities"][id]["claims"]:
-                dt = r_json["entities"][id]["claims"]["P570"][0]["mainsnak"]["datavalue"]["value"]["time"]
+                dt = r_json["entities"][id]["claims"]["P570"][0]["mainsnak"][
+                    "datavalue"
+                ]["value"]["time"]
                 return dt[1:11]  # trim to YYYY-MM-DD
             return ""
 
@@ -93,6 +110,7 @@ def deathdate(id):
 
     print(f"❌ Failed to get data for {id} after 5 attempts.")
     return ""
+
 
 def todays_date():
     """
@@ -154,43 +172,44 @@ def compare_dates(date1, date2):
                 else:
                     return False
 
-def find_death_position(data, id, death_date = None):
+
+def find_death_position(data, id, death_date=None):
     """
     Finds the position in Alivewatch at the time of death, for a given Wikidata ID.
     Returns the position as a string or 'n/k' if not found.
-    
+
     Parameters:
     data (DataFrame): The DataFrame containing Alivewatch data.
     id (str): The Wikidata ID of the person.
     death_date (str): The date of death in the format YYYY-MM-DD. If None, uses the death date from the DataFrame.
-    
+
     Returns:
     str: The position at the time of death or 'n/k' if not found.
     """
     # Get the death date for the given ID
     if death_date is None:
-        death_date = data[data["wikidata_code"] == id]['deathstamp'].values[0]
-    addeddate = data[data["wikidata_code"] == id]['date_added_to_alivewatch'].values[0]
-    
+        death_date = data[data["wikidata_code"] == id]["deathstamp"].values[0]
+    addeddate = data[data["wikidata_code"] == id]["date_added_to_alivewatch"].values[0]
+
     # If no death date is found, return empty string - they haven't died yet
     if death_date == " ":
         return ""
-    
+
     # If date of death is before 2024-01-03, return 'n/k' - this is when the ranking system was introduced
     if compare_dates("2024-01-03", death_date):
         return "n/k"
-    
+
     # Find name corresponding to the ID in Alivewatch
-    name = data[data["wikidata_code"] == id]['name'].values[0]
-    namecolumn = 'name'
-    addedcolumn = 'date_added_to_alivewatch' 
-    
+    name = data[data["wikidata_code"] == id]["name"].values[0]
+    namecolumn = "name"
+    addedcolumn = "date_added_to_alivewatch"
+
     # If date of death is before 2025-02-22, use raw name, otherwise use cleaned name
     if compare_dates(death_date, "2025-02-21"):
         name = clean_name(name)
-        namecolumn = 'Name'
-        addedcolumn = 'Date Added to Alivewatch'
-    
+        namecolumn = "Name"
+        addedcolumn = "Date Added to Alivewatch"
+
     # Look for the latest file of the form 'YYYY-MM-DD-On_Alivewatch.csv' before the death date
     files = os.listdir("old_data")
     files = [f for f in files if re.match(r"\d{4}-\d{2}-\d{2}-On_Alivewatch\.csv", f)]
@@ -203,21 +222,24 @@ def find_death_position(data, id, death_date = None):
     # Read the latest file
     latest_file = files[0]
     df = pd.read_csv(os.path.join("old_data", latest_file))
-    
+
     # If the date of the latest file is before 2024-01-05, convert the date format from a string YYYY-MM-DD to a string DD/MM/YYYY - this is when I changed the date format
     if compare_dates("2024-01-05", latest_file[:10]):
         day = latest_file[8:10]
         month = latest_file[5:7]
         year = latest_file[0:4]
-        addeddate = f'{day}/{month}/{year}'
-    
+        addeddate = f"{day}/{month}/{year}"
+
     # Check if the name is in the latest file
     if name in df[namecolumn].values:
         # Get the position of the name in the latest file - also use date added for disambiguation
-        position = df[(df[namecolumn] == name) & (df[addedcolumn] == addeddate)].index[0] + 1
+        position = (
+            df[(df[namecolumn] == name) & (df[addedcolumn] == addeddate)].index[0] + 1
+        )
         return str(position)
-    else: # Name not found
+    else:  # Name not found
         return "n/k"
+
 
 # Update Alivewatch
 def update(maxyear, minrank, maxrank):
@@ -234,7 +256,9 @@ def update(maxyear, minrank, maxrank):
     None
     """
 
-    data = pd.read_csv("Alivewatch.csv.gz", na_filter = False, compression="gzip", encoding="utf-8")
+    data = pd.read_csv(
+        "Alivewatch.csv.gz", na_filter=False, compression="gzip", encoding="utf-8"
+    )
     newdata = data.copy()
     num = len(data)
     deathstampnew = data["deathstamp"].copy()  # Use existing date unless updated below
@@ -244,13 +268,13 @@ def update(maxyear, minrank, maxrank):
     dateaddednew = data[
         "date_added_to_alivewatch"
     ].copy()  # Use existing date unless updated below
-    deathpositionnew = data["position_at_death"].copy()  # Use existing value unless updated below
-    
+    deathpositionnew = data[
+        "position_at_death"
+    ].copy()  # Use existing value unless updated below
+
     for i in range(num):
         # check if died
-        if (
-            data["deathstamp"][i] != " "
-        ):  # They are already recorded as dead
+        if data["deathstamp"][i] != " ":  # They are already recorded as dead
             fate = "Already dead"
             # Find the day of the month recorded in their death date
             deathday = int(data["deathstamp"][i][8:10])
@@ -261,12 +285,16 @@ def update(maxyear, minrank, maxrank):
                 if ded != "":
                     deathstampnew[i] = ded
                     fate = "Died - date updated to " + ded
-            
-            if data["alivewatch?"][i] == 1 and data["deathstamp"][i] != " " and data["position_at_death"][i] == "": # Need to add their position at time of death
+
+            if (
+                data["alivewatch?"][i] == 1
+                and data["deathstamp"][i] != " "
+                and data["position_at_death"][i] == ""
+            ):  # Need to add their position at time of death
                 death_position = find_death_position(data, data["wikidata_code"][i])
                 deathpositionnew[i] = death_position
                 fate = "Already dead - position at death updated to " + death_position
-        
+
         else:  # They are still alive
             if (
                 data["birth"][i] > maxyear
@@ -297,7 +325,9 @@ def update(maxyear, minrank, maxrank):
                         else:  # They do have a deathdate, so they have died
                             fate = "Died under watch:" + ded
                             deathstampnew[i] = ded
-                            deathpositionnew[i] = find_death_position(data, data["wikidata_code"][i], ded)
+                            deathpositionnew[i] = find_death_position(
+                                data, data["wikidata_code"][i], ded
+                            )
                             if data["alivewatch?"][i] == 0:
                                 fate = "Died - missed by Alivewatch"
         if fate != "":
@@ -385,7 +415,7 @@ def report(maxyear, maxrank):
     died_list = []
     diedsince_list = []
 
-    # Populate lists 
+    # Populate lists
     for i in range(num):
         if (
             data["deathstamp"][i] == " " and data["alivewatch?"][i] == 1
@@ -426,7 +456,7 @@ def report(maxyear, maxrank):
                 }
             )
 
-    # Convert lists to DataFrames 
+    # Convert lists to DataFrames
     alive = pd.DataFrame(alive_list)
     died = pd.DataFrame(died_list)
     diedsince = pd.DataFrame(diedsince_list)
@@ -465,7 +495,9 @@ def report(maxyear, maxrank):
 
     # Now find each person's position this time last year
     # Find the date one year ago
-    alive.reset_index(drop=True, inplace=True)  # Reset index to avoid issues with indexing
+    alive.reset_index(
+        drop=True, inplace=True
+    )  # Reset index to avoid issues with indexing
     movement_in_last_year = []
     lastyear = datetime.datetime.now() - datetime.timedelta(days=365)
     lastyear = lastyear.strftime("%Y-%m-%d")
@@ -491,16 +523,22 @@ def report(maxyear, maxrank):
         # Check if the name is in the last year's file
         if alive["name"][i] in alivewatch_last_year["name"].values:
             # Get the position of the name in last year's file - also use date added for disambiguation
-            position = alivewatch_last_year[
-                (alivewatch_last_year[namefield] == alive["name"][i])
-                & (alivewatch_last_year[datefield] == alive["date_added_to_alivewatch"][i])
-            ].index[0] + 1
+            position = (
+                alivewatch_last_year[
+                    (alivewatch_last_year[namefield] == alive["name"][i])
+                    & (
+                        alivewatch_last_year[datefield]
+                        == alive["date_added_to_alivewatch"][i]
+                    )
+                ].index[0]
+                + 1
+            )
             movement_in_last_year.append(
                 render_movement(str(int(alive["priority"][i]) - int(position)))
             )
         else:  # Name not found
             movement_in_last_year.append(render_movement("new entry"))
-    
+
     # Add the positions to the dataframe
     alive.insert(5, "movement_in_last_year", movement_in_last_year)
 
@@ -579,6 +617,7 @@ def report(maxyear, maxrank):
     died.to_csv("data/Missed_by_alivewatch.csv", index=False, encoding="utf-8")
     diedsince.to_csv("data/Died_under_watch.csv", index=False, encoding="utf-8")
     added.to_csv("data/Alivewatch_by_date_added.csv", index=False, encoding="utf-8")
+
 
 def main():
     """
