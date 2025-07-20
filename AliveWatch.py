@@ -11,16 +11,49 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 
-load_dotenv()
 
-# Import Wikidata credentials from environment variables
-WD_USERNAME = os.environ.get("WD_USERNAME")
-WD_PASSWORD = os.environ.get("WD_PASSWORD")
+def get_authenticated_session():
+    # Load local secrets if running outside GitHub
+    load_dotenv()
 
-if WD_USERNAME is None or WD_PASSWORD is None:
-    raise RuntimeError(
-        "Missing Wikidata credentials. Set them in .env or GitHub secrets."
+    WD_USERNAME = os.environ.get("WD_USERNAME")
+    WD_PASSWORD = os.environ.get("WD_PASSWORD")
+
+    if not WD_USERNAME or not WD_PASSWORD:
+        raise RuntimeError("Missing Wikidata credentials in environment")
+
+    session = requests.Session()
+    session.headers.update(
+        {"User-Agent": "AliveWatchBot/1.0 (https://github.com/Viperiser/alivewatch/)"}
     )
+
+    API_URL = "https://www.wikidata.org/w/api.php"
+
+    # Step 1: Get login token
+    token_response = session.get(
+        API_URL,
+        params={"action": "query", "meta": "tokens", "type": "login", "format": "json"},
+    )
+
+    login_token = token_response.json()["query"]["tokens"]["logintoken"]
+
+    # Step 2: Log in using the bot password
+    login_response = session.post(
+        API_URL,
+        data={
+            "action": "login",
+            "lgname": WD_USERNAME,
+            "lgpassword": WD_PASSWORD,
+            "lgtoken": login_token,
+            "format": "json",
+        },
+    )
+
+    result = login_response.json()
+    if result.get("login", {}).get("result") != "Success":
+        raise RuntimeError(f"Login failed: {result}")
+
+    return session
 
 
 def clean_name(name):
@@ -63,12 +96,13 @@ def render_movement(movement):
 
 
 # Date of death is property P570
-def deathdate(id):
+def deathdate(id, session):
     """
     Returns the date of death for a given Wikidata ID.
 
     Parameters:
     id (str): The Wikidata ID of the person.
+    session (requests.Session): The authenticated session for making requests to Wikidata.
 
     Returns:
     str: The date of death in the format YYYY-MM-DD, or an empty string if no date is found.
@@ -83,7 +117,7 @@ def deathdate(id):
 
     for attempt in range(5):  # Try up to 5 times
         try:
-            r = requests.get(uri, timeout=10)
+            r = session.get(uri, timeout=10)
             if r.status_code == 429:
                 wait = 10 * (attempt + 1)
                 print(f"⚠️ Rate limited for {id}, waiting {wait} seconds...")
@@ -242,7 +276,7 @@ def find_death_position(data, id, death_date=None):
 
 
 # Update Alivewatch
-def update(maxyear, minrank, maxrank):
+def update(maxyear, minrank, maxrank, session):
     """
     Updates Alivewatch.csv with the latest death dates from Wikipedia.
     Also updates the last updated date in last_updated.txt.
@@ -251,6 +285,7 @@ def update(maxyear, minrank, maxrank):
     maxyear (int): The maximum year of birth for people to be included in Alivewatch.
     minrank (int): The minimum notability rank for people to be included in Alivewatch.
     maxrank (int): The maximum notability rank for people to be included in Alivewatch.
+    session (requests.Session): The authenticated session for making requests to Wikidata.
 
     Returns:
     None
@@ -281,7 +316,7 @@ def update(maxyear, minrank, maxrank):
             if (
                 deathday == 0
             ):  # This means that the precise date was previously unknown, so update it
-                ded = deathdate(data["wikidata_code"][i])
+                ded = deathdate(data["wikidata_code"][i], session)
                 if ded != "":
                     deathstampnew[i] = ded
                     fate = "Died - date updated to " + ded
@@ -312,7 +347,7 @@ def update(maxyear, minrank, maxrank):
                         continue
                     else:  # They are in the right age range and notability range to be on Alivewatch, and still alive
                         ded = deathdate(
-                            data["wikidata_code"][i]
+                            data["wikidata_code"][i], session
                         )  # Find their death date from Wikipedia
                         if ded == "":  # No death date found, so they are still alive
                             fate = "Still alive - already on Alivewatch"  # Default fate, unless...
@@ -629,6 +664,8 @@ def main():
     Returns:
     None
     """
+    # Log into Wikidata
+    session = get_authenticated_session()
 
     # Set parameters
     maxyear = datetime.datetime.now().year - 85
@@ -636,7 +673,7 @@ def main():
     maxrank = 100000  # maximum notability rank (excludes people who are too obscure)
 
     # Update Alivewatch from wikipedia
-    update(maxyear, minrank, maxrank)
+    update(maxyear, minrank, maxrank, session)
 
     # Create reports
     report(maxyear, maxrank)
