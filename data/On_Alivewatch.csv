@@ -264,8 +264,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 263,Philip Kaufman,Actor,89,2024-01-03,▲51
 264,Bernie Kopell,Screenwriter,92,2024-01-03,▲51
 265,Jim Dine,Painter,90,2024-01-03,▲51
-266,Yuan T. Lee,Chemist,89,2024-01-03,▲52
-267,Caldwell Esselstyn,Rower,92,2024-01-03,▲50
+266,Caldwell Esselstyn,Rower,92,2024-01-03,▲51
+267,Yuan T. Lee,Chemist,89,2024-01-03,▲51
 268,Elizabeth Dole,Politician,89,2024-01-03,▲51
 269,Richard Swinburne,Philosopher,91,2024-01-03,▲51
 270,Don Norman,Computer Scientist,90,2024-01-03,▲52
@@ -388,8 +388,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 387,Ted Nelson,Philosopher,88,2024-01-03,▲68
 388,Shirley Eaton,Actor,88,2024-01-03,▲69
 389,Frederic Raphael,Actor,94,2024-01-03,▲69
-390,Thea Musgrave,Composer,97,2024-01-03,▲69
-391,Terry Gilliam,Film,85,2025-01-03,🆕
+390,Terry Gilliam,Film,85,2025-01-03,🆕
+391,Thea Musgrave,Composer,97,2024-01-03,▲68
 392,Martin Sheen,Actor,85,2025-01-03,🆕
 393,Andrew Davies (writer),Screenwriter,89,2024-01-03,▲67
 394,Tom Jones (singer),Singer,85,2025-01-03,🆕
@@ -908,8 +908,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 907,Waris Hussein,Film,87,2024-01-03,▲28
 908,Ed Sanders,Music,86,2024-01-03,▲28
 909,Gene Chandler,Songwriter,88,2024-01-03,▲28
-910,John W. Snow,Politician,86,2024-01-03,▲28
-911,Carole Ann Ford,Actor,85,2025-01-03,🆕
+910,Carole Ann Ford,Actor,85,2025-01-03,🆕
+911,John W. Snow,Politician,86,2024-01-03,▲27
 912,Robin Knox-Johnston,Explorer,86,2024-01-03,▲27
 913,Vija Celmins,Painter,87,2024-01-03,▲27
 914,Doug Kershaw,Music,89,2024-01-03,▲27
@@ -1090,21 +1090,20 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 1089,Mary Rand,Athletic,85,2025-01-03,🆕
 1090,Roger Kellaway,Composer,86,2024-01-03,▼6
 1091,Thomas McGuane,Writer,86,2024-01-03,▼6
-1092,"Meghnad Desai, Baron Desai",Economist,85,2025-01-03,🆕
-1093,Stephen H. Burum,Cinema,86,2024-01-03,▼7
-1094,Michael Wadleigh,Film,86,2024-01-03,▼7
-1095,Penny Fuller,Actor,85,2025-01-03,🆕
-1096,Jack Shepherd (actor),Actor,85,2025-01-03,🆕
-1097,RubÃ©n Hinojosa,Politician,85,2025-01-03,🆕
-1098,Ernest Sosa,Philosopher,85,2025-01-03,🆕
-1099,Louise Sorel,Actor,85,2025-01-03,🆕
-1100,John Cornwell (writer),Novelist,85,2025-01-03,🆕
-1101,Daniel Goldin,Politician,85,2025-01-03,🆕
-1102,Kenneth Binmore,Economist,85,2025-01-03,🆕
-1103,Richard Edlund,Special Effects,85,2025-01-03,🆕
-1104,Wyche Fowler,Politician,85,2025-01-03,🆕
-1105,Roscoe Mitchell,Composer,85,2025-01-03,🆕
-1106,Jo Ann Pflug,Actor,85,2025-01-03,🆕
-1107,Frances Mayes,Novelist,85,2025-01-03,🆕
-1108,David Ackroyd,Actor,85,2025-01-03,🆕
-1109,Deanna Dunagan,Actor,85,2025-01-03,🆕
+1092,Stephen H. Burum,Cinema,86,2024-01-03,▼6
+1093,Michael Wadleigh,Film,86,2024-01-03,▼6
+1094,Penny Fuller,Actor,85,2025-01-03,🆕
+1095,Jack Shepherd (actor),Actor,85,2025-01-03,🆕
+1096,RubÃ©n Hinojosa,Politician,85,2025-01-03,🆕
+1097,Ernest Sosa,Philosopher,85,2025-01-03,🆕
+1098,Louise Sorel,Actor,85,2025-01-03,🆕
+1099,John Cornwell (writer),Novelist,85,2025-01-03,🆕
+1100,Daniel Goldin,Politician,85,2025-01-03,🆕
+1101,Kenneth Binmore,Economist,85,2025-01-03,🆕
+1102,Richard Edlund,Special Effects,85,2025-01-03,🆕
+1103,Wyche Fowler,Politician,85,2025-01-03,🆕
+1104,Roscoe Mitchell,Composer,85,2025-01-03,🆕
+1105,Jo Ann Pflug,Actor,85,2025-01-03,🆕
+1106,Frances Mayes,Novelist,85,2025-01-03,🆕
+1107,David Ackroyd,Actor,85,2025-01-03,🆕
+1108,Deanna Dunagan,Actor,85,2025-01-03,🆕
