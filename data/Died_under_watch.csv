@@ -1,17 +1,19 @@
 Name,Profession,Birth Year,Date of Death,Final Priority Rank
+Russell M. Nelson,Physician,1924,2025-09-27,132
 Tony Harrison,Poet,1937,2025-09-26,945
 Danny Thompson,Bassist,1939,2025-09-23,924
 Henry Jaglom,Actor,1938,2025-09-22,1011
 Sonny Curtis,Singer,1937,2025-09-19,940
+John Searle,Philosopher,1932,2025-09-17,60
 Nicholas Grimshaw,Architect,1939,2025-09-14,735
 Jack Daniels (coach),Athlete,1933,2025-09-12,765
 Peter Hirsch,Physicist,1925,2025-09-12,363
 Polly Holliday,Actor,1937,2025-09-09,449
 David Baltimore,Virologist,1938,2025-09-06,354
-Robert Jay Lifton,Psychiatrist,1926,2025-09-04,57
 "Katharine, Duchess of Kent",Royal Family,1933,2025-09-04,339
-Angela Mortimer,Player,1932,2025-08-25,849
+Robert Jay Lifton,Psychiatrist,1926,2025-09-04,57
 Rainer Weiss,Physicist,1932,2025-08-25,377
+Angela Mortimer,Player,1932,2025-08-25,849
 Jerry Adler,Actor,1929,2025-08-23,518
 James Dobson,Psychologist,1936,2025-08-21,365
 Terence Stamp,Actor,1938,2025-08-17,285
@@ -45,12 +47,12 @@ George E. Smith,Physicist,1930,2025-05-28,118
 Charles Rangel,Politician,1930,2025-05-26,80
 Susan Brownmiller,Feminist,1935,2025-05-24,705
 Pippa Scott,Actor,1935,2025-05-22,790
-Billy Williams (cinematographer),Cinema,1929,2025-05-21,538
 Alasdair MacIntyre,Philosopher,1929,2025-05-21,23
+Billy Williams (cinematographer),Cinema,1929,2025-05-21,538
 Jayant Narlikar,Physicist,1938,2025-05-20,375
 Charles Strouse,Composer,1928,2025-05-15,164
-Kit Bond,Politician,1939,2025-05-13,740
 Richard Garwin,Physicist,1928,2025-05-13,640
+Kit Bond,Politician,1939,2025-05-13,740
 Robert Benton,Film,1932,2025-05-11,86
 Aidan Chambers,Playwright,1934,2025-05-11,669
 David Souter,Lawyer,1939,2025-05-08,600
@@ -61,8 +63,8 @@ George Ryan,Politician,1934,2025-05-02,514
 Ruth Buzzi,Actor,1936,2025-05-01,340
 David Horowitz,Conservative,1939,2025-04-29,591
 Priscilla Pointer,Actor,1924,2025-04-28,14
-Will Hutchins,Actor,1930,2025-04-21,714
 Herbert J. Gans,Sociologist,1927,2025-04-21,530
+Will Hutchins,Actor,1930,2025-04-21,714
 Jeremy Bernstein,Physicist,1929,2025-04-20,506
 Jean Marsh,Screenwriter,1934,2025-04-13,198
 Peter Lovesey,Writer,1936,2025-04-10,689
@@ -73,8 +75,8 @@ Richard Chamberlain,Actor,1934,2025-03-29,111
 Nita Lowey,Politician,1937,2025-03-15,681
 Alan Simpson (American politician),Politician,1931,2025-03-14,247
 Bruce Glover,Actor,1932,2025-03-12,375
-Sandra Harding,Philosopher,1935,2025-03-06,612
 Meredith Belbin,Scientist,1926,2025-03-06,380
+Sandra Harding,Philosopher,1935,2025-03-06,612
 Charles Tart,Psychologist,1937,2025-03-05,1056
 Roy Ayers,Singer,1940,2025-03-04,740
 Joseph Wambaugh,Writer,1937,2025-02-28,707
@@ -119,19 +121,19 @@ Barbara Taylor Bradford,Author,1933,2024-11-24,466
 Fred R. Harris,Politician,1930,2024-11-23,557
 John Prescott,Politician,1938,2024-11-20,398
 Richard V. Allen,Advisor,1936,2024-11-16,915
-Thomas E. Kurtz,Computer Scientist,1928,2024-11-12,597
-Timothy West,Opera,1934,2024-11-12,219
 Roy Haynes,Drummer,1925,2024-11-12,15
+Timothy West,Opera,1934,2024-11-12,219
+Thomas E. Kurtz,Computer Scientist,1928,2024-11-12,597
 Frank Auerbach,Painter,1931,2024-11-11,186
-Bobby Allison,Nascar,1937,2024-11-09,865
 Lou Donaldson,Composer,1926,2024-11-09,56
+Bobby Allison,Nascar,1937,2024-11-09,865
 John Nott,Politician,1932,2024-11-06,850
 Quincy Jones,Conductor,1933,2024-11-03,90
 Jonathan Haze,Actor,1929,2024-11-02,626
 Paul Morrissey,Film,1938,2024-10-28,549
 Jeri Taylor,Screenwriter,1938,2024-10-24,1035
-Leon Cooper,Physicist,1930,2024-10-23,72
 Jack Jones (singer),Singer,1938,2024-10-23,577
+Leon Cooper,Physicist,1930,2024-10-23,72
 Joseph Rykwert,Professor,1926,2024-10-18,404
 Mitzi Gaynor,Actor,1931,2024-10-17,84
 Andrew Schally,Physician,1926,2024-10-17,43
@@ -139,14 +141,14 @@ Philip Zimbardo,Psychologist,1933,2024-10-14,115
 Ethel Kennedy,Campaign,1928,2024-10-10,46
 Nicholas Pryor,Actor,1935,2024-10-07,732
 Cissy Houston,Singer,1933,2024-10-07,176
-Robert Coover,Writer,1932,2024-10-05,217
 Bruce Ames,Biochemist,1928,2024-10-05,196
+Robert Coover,Writer,1932,2024-10-05,217
 Ron Ely,Actor,1938,2024-09-29,602
 Kris Kristofferson,Actor,1936,2024-09-28,198
 Fredric Jameson,Political Scientist,1934,2024-09-22,168
 Benny Golson,Composer,1929,2024-09-21,54
-Kathryn Crosby,Singer,1933,2024-09-20,301
 Daniel J. Evans,Politician,1925,2024-09-20,227
+Kathryn Crosby,Singer,1933,2024-09-20,301
 Ralph Abraham (mathematician),Mathematician,1936,2024-09-19,1015
 Peter Green (historian),Scholar,1924,2024-09-16,180
 Barbara Leigh-Hunt,Actor,1935,2024-09-16,685
@@ -155,24 +157,24 @@ Herbie Flowers,Songwriter,1938,2024-09-05,986
 James Darren,Actor,1936,2024-09-02,376
 Ronald Shusett,Screenwriter,1939,2024-08-29,911
 Alexander Goehr,Composer,1932,2024-08-26,524
-Bill Pascrell,Politician,1937,2024-08-21,828
 John Amos,Actor,1939,2024-08-21,471
+Bill Pascrell,Politician,1937,2024-08-21,828
 Phil Donahue,Film,1935,2024-08-18,478
 Gena Rowlands,Actor,1930,2024-08-14,34
-Charles Cyphers,Actor,1939,2024-08-04,1002
 Alvin Goldman,Philosopher,1938,2024-08-04,952
+Charles Cyphers,Actor,1939,2024-08-04,1002
 John Mayall,Guitar,1933,2024-07-22,110
-James C. Scott,Anthropologist,1936,2024-07-19,922
 Wolfgang Smith,Mathematician,1930,2024-07-19,690
+James C. Scott,Anthropologist,1936,2024-07-19,922
 Bob Newhart,Actor,1929,2024-07-18,20
 James Sikking,Actor,1934,2024-07-13,386
 Joe Engle,Officer,1932,2024-07-10,773
-Maxine Singer,Biologist,1931,2024-07-09,579
 Jim Inhofe,Politician,1934,2024-07-09,203
+Maxine Singer,Biologist,1931,2024-07-09,579
 Vic Seixas,Player,1923,2024-07-05,169
 Robert Towne,Screenwriter,1934,2024-07-01,218
-Orlando Cepeda,Baseball,1937,2024-06-28,588
 Audrey Flack,Sculptor,1931,2024-06-28,560
+Orlando Cepeda,Baseball,1937,2024-06-28,588
 Bill Cobbs,Actor,1934,2024-06-25,212
 Paul Davidson (economist),Economist,1930,2024-06-20,777
 Willie Mays,Baseball,1931,2024-06-18,71
@@ -228,10 +230,10 @@ Steve Paxton,Choreographer,1939,2024-02-20,1143
 Allen J. Bard,Chemist,1933,2024-02-11,568
 Michael Jayston,Actor,1935,2024-02-05,720
 Don Murray (actor),Film,1929,2024-02-02,53
-Chita Rivera,Dancer,1933,2024-01-30,177
 Jean Carnahan,Politician,1933,2024-01-30,700
-Carl Andre,Painter,1935,2024-01-24,269
+Chita Rivera,Dancer,1933,2024-01-30,177
 N. Scott Momaday,Novelist,1934,2024-01-24,302
+Carl Andre,Painter,1935,2024-01-24,269
 David Kahn (writer),Historian,1930,2024-01-23,436
 Arno Allan Penzias,Astronomer,1933,2024-01-22,172
 Donald Adamson,Biographer,1939,2024-01-18,1113
