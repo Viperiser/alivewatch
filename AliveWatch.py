@@ -546,17 +546,24 @@ def report(maxyear, maxrank):
     file = files[0]  # Get the most recent file
     # Read the file
     alivewatch_last_year = pd.read_csv(os.path.join("old_data", file))
-    namefield = "Name"
-    datefield = "Date Added to Alivewatch"
-    # If lastyear is before 2025-02-22, clean the names in the file
-    if compare_dates("2025-02-22", lastyear):
-        alivewatch_last_year["name"] = alivewatch_last_year["name"].apply(clean_name)
+
+    # Find the correct name of the 'name' column, which changed in Feb 2025
+    if "Name" in alivewatch_last_year.columns:
+        namefield = "Name"
+    else:
         namefield = "name"
-        datefield = "date_added_to_alivewatch"
+
+    # Find the correct name of the date column
+    namefield = "Name" if "Name" in alivewatch_last_year.columns else "name"
+    datefield = (
+        "Date Added to Alivewatch"
+        if "Date Added to Alivewatch" in alivewatch_last_year.columns
+        else "date_added_to_alivewatch"
+    )
     # Now match each of the names in alive to the names in alivewatch_last_year, along with date added (for disambiguation)
     for i in range(len(alive)):
         # Check if the name is in the last year's file
-        if alive["name"][i] in alivewatch_last_year["name"].values:
+        if alive["name"][i] in alivewatch_last_year[namefield].values:
             # Get the position of the name in last year's file - also use date added for disambiguation
             position = (
                 alivewatch_last_year[
