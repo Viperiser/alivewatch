@@ -1,5 +1,6 @@
 Name,Profession,Birth Year,Date of Death,Final Priority Rank
 Matt Clark (actor),Actor,1936,2026-03-15,790
+Len Deighton,Writer,1929,2026-03-15,30
 Paul R. Ehrlich,Lepidopterist,1932,2026-03-13,82
 Anthony James Leggett,Physicist,1938,2026-03-08,420
 Tony Hoare,Computer Scientist,1934,2026-03-05,129
@@ -35,8 +36,8 @@ James Watson,Biologist,1928,2025-11-06,7
 Pauline Collins,Actor,1940,2025-11-05,477
 Diane Ladd,Actor,1932,2025-11-03,65
 Martha Layne Collins,Politician,1936,2025-11-01,898
-Peter Watkins,Film,1935,2025-10-30,354
 Adam Greenberg (cinematographer),Cinema,1939,2025-10-30,924
+Peter Watkins,Film,1935,2025-10-30,354
 Prunella Scales,Actor,1932,2025-10-27,125
 Hamilton O. Smith,Biologist,1931,2025-10-25,336
 June Lockhart,Actor,1925,2025-10-23,5
@@ -57,10 +58,10 @@ Jack Daniels (coach),Athlete,1933,2025-09-12,765
 Peter Hirsch,Physicist,1925,2025-09-12,363
 Polly Holliday,Actor,1937,2025-09-09,449
 David Baltimore,Virologist,1938,2025-09-06,354
-"Katharine, Duchess of Kent",Royal Family,1933,2025-09-04,339
 Robert Jay Lifton,Psychiatrist,1926,2025-09-04,57
-Rainer Weiss,Physicist,1932,2025-08-25,377
+"Katharine, Duchess of Kent",Royal Family,1933,2025-09-04,339
 Angela Mortimer,Player,1932,2025-08-25,849
+Rainer Weiss,Physicist,1932,2025-08-25,377
 Jerry Adler,Actor,1929,2025-08-23,518
 James Dobson,Psychologist,1936,2025-08-21,365
 Terence Stamp,Actor,1938,2025-08-17,285
