@@ -158,8 +158,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 157,Robert Silverberg,Screenwriter,91,2024-01-03,▲29
 158,Douglas Wilder,Politician,95,2024-01-03,▲29
 159,Don DeLillo,Writer,90,2024-01-03,▲29
-160,Anthony Kenny,Philosopher,95,2024-01-03,▲30
-161,Dana Scott,Mathematician,94,2024-01-03,▲28
+160,Dana Scott,Mathematician,94,2024-01-03,▲29
+161,Anthony Kenny,Philosopher,95,2024-01-03,▲29
 162,Leonard Kleinrock,Mathematician,92,2024-01-03,▲29
 163,Marilyn Horne,Singer,92,2024-01-03,▲29
 164,Dolores Huerta,Trade Union,96,2024-01-03,▲29
@@ -179,8 +179,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 178,James B. Harris,Film,98,2024-01-03,▲30
 179,Caroline Graham,Screenwriter,95,2024-01-03,▲30
 180,HÃ©ctor Elizondo,Actor,90,2024-01-03,▲30
-181,Constance Towers,Singer,93,2024-01-03,▲31
-182,Lee Meriwether,Actor,91,2024-01-03,▲29
+181,Lee Meriwether,Actor,91,2024-01-03,▲30
+182,Constance Towers,Singer,93,2024-01-03,▲30
 183,Warren Beatty,Actor,89,2024-01-03,▲30
 184,John G. Thompson,Mathematician,94,2024-01-03,▲30
 185,Harrison Schmitt,Geologist,91,2024-01-03,▲30
@@ -1161,53 +1161,52 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 1160,John Steel (drummer),Music,85,2026-01-01,🆕
 1161,Norman Fairclough,Linguist,85,2026-01-01,🆕
 1162,Terry Paine,Football,87,2024-01-03,▼36
-1163,Averil Cameron,Historian,86,2025-01-03,▼36
-1164,Marv Albert,Sport,85,2026-01-01,🆕
-1165,Lance Alworth,Football,86,2025-01-03,▼37
-1166,Jake Holmes,Singer,87,2024-01-03,▼37
-1167,Paula Gosling,Novelist,87,2024-01-03,▼37
-1168,Brian Holland,Singer,85,2026-01-01,🆕
-1169,Marco St. John,Actor,87,2024-01-03,▼38
-1170,Lawrence Foster,Conductor,85,2026-01-01,🆕
-1171,Stanley Mouse,Painter,86,2025-01-03,▼39
-1172,Roger Kellaway,Composer,87,2024-01-03,▼38
-1173,Ben Jones (American actor and politician),Actor,85,2026-01-01,🆕
-1174,Thomas McGuane,Writer,87,2024-01-03,▼39
-1175,John De Andrea,Artist,85,2026-01-01,🆕
-1176,Stephen H. Burum,Cinema,87,2024-01-03,▼39
-1177,Michael Wadleigh,Film,87,2024-01-03,▼39
-1178,Penny Fuller,Actor,86,2025-01-03,▼39
-1179,Eddie Daniels,Clarinet,85,2026-01-01,🆕
-1180,RubÃ©n Hinojosa,Politician,86,2025-01-03,▼39
-1181,Matthew F. Leonetti,Cinema,85,2026-01-01,🆕
-1182,"Bob Wilson (footballer, born 1941)",Football,85,2026-01-01,🆕
-1183,David Parnas,Computer Scientist,85,2026-01-01,🆕
-1184,Kevin Crossley-Holland,Writer,85,2026-01-01,🆕
-1185,Ernest Sosa,Philosopher,86,2025-01-03,▼43
-1186,Louise Sorel,Actor,86,2025-01-03,▼43
-1187,Michael Gorman (librarian),Librarian,85,2026-01-01,🆕
-1188,John Cornwell (writer),Novelist,86,2025-01-03,▼44
-1189,Daniel Goldin,Politician,86,2025-01-03,▼44
-1190,Kenneth Binmore,Economist,86,2025-01-03,▼44
-1191,Richard Edlund,Special Effects,86,2025-01-03,▼44
-1192,Wyche Fowler,Politician,86,2025-01-03,▼44
-1193,Delia Smith,Broadcast,85,2026-01-01,🆕
-1194,Lynn Hershman Leeson,Screenwriter,85,2026-01-01,🆕
-1195,Laurence Tribe,Lawyer,85,2026-01-01,🆕
-1196,Alan Furst,Author,85,2026-01-01,🆕
-1197,Roscoe Mitchell,Composer,86,2025-01-03,▼48
-1198,Jo Ann Pflug,Actor,86,2025-01-03,▼48
-1199,Simon Langton (television director),Producer,85,2026-01-01,🆕
-1200,Richard Tuttle,Sculptor,85,2026-01-01,🆕
-1201,Frances Mayes,Novelist,86,2025-01-03,▼50
-1202,David Ackroyd,Actor,86,2025-01-03,▼50
-1203,Deanna Dunagan,Actor,86,2025-01-03,▼50
-1204,Howard Berman,Politician,85,2026-01-01,🆕
-1205,Gary K. Wolf,Writer,85,2026-01-01,🆕
-1206,Dr. Demento,Music,85,2026-01-01,🆕
-1207,George Smith (chemist),Chemist,85,2026-01-01,🆕
-1208,Alan Lowenthal,Politician,85,2026-01-01,🆕
-1209,Roy Marsden,Actor,85,2026-01-01,🆕
-1210,Dory Funk Jr.,Wrestler,85,2026-01-01,🆕
-1211,Philip Caputo,Journalist,85,2026-01-01,🆕
-1212,Ron Jones (teacher),Teacher,85,2026-01-01,🆕
+1163,Marv Albert,Sport,85,2026-01-01,🆕
+1164,Lance Alworth,Football,86,2025-01-03,▼36
+1165,Jake Holmes,Singer,87,2024-01-03,▼36
+1166,Paula Gosling,Novelist,87,2024-01-03,▼36
+1167,Brian Holland,Singer,85,2026-01-01,🆕
+1168,Marco St. John,Actor,87,2024-01-03,▼37
+1169,Lawrence Foster,Conductor,85,2026-01-01,🆕
+1170,Stanley Mouse,Painter,86,2025-01-03,▼38
+1171,Roger Kellaway,Composer,87,2024-01-03,▼37
+1172,Ben Jones (American actor and politician),Actor,85,2026-01-01,🆕
+1173,Thomas McGuane,Writer,87,2024-01-03,▼38
+1174,John De Andrea,Artist,85,2026-01-01,🆕
+1175,Stephen H. Burum,Cinema,87,2024-01-03,▼38
+1176,Michael Wadleigh,Film,87,2024-01-03,▼38
+1177,Penny Fuller,Actor,86,2025-01-03,▼38
+1178,Eddie Daniels,Clarinet,85,2026-01-01,🆕
+1179,RubÃ©n Hinojosa,Politician,86,2025-01-03,▼38
+1180,Matthew F. Leonetti,Cinema,85,2026-01-01,🆕
+1181,"Bob Wilson (footballer, born 1941)",Football,85,2026-01-01,🆕
+1182,David Parnas,Computer Scientist,85,2026-01-01,🆕
+1183,Kevin Crossley-Holland,Writer,85,2026-01-01,🆕
+1184,Ernest Sosa,Philosopher,86,2025-01-03,▼42
+1185,Louise Sorel,Actor,86,2025-01-03,▼42
+1186,Michael Gorman (librarian),Librarian,85,2026-01-01,🆕
+1187,John Cornwell (writer),Novelist,86,2025-01-03,▼43
+1188,Daniel Goldin,Politician,86,2025-01-03,▼43
+1189,Kenneth Binmore,Economist,86,2025-01-03,▼43
+1190,Richard Edlund,Special Effects,86,2025-01-03,▼43
+1191,Wyche Fowler,Politician,86,2025-01-03,▼43
+1192,Delia Smith,Broadcast,85,2026-01-01,🆕
+1193,Lynn Hershman Leeson,Screenwriter,85,2026-01-01,🆕
+1194,Laurence Tribe,Lawyer,85,2026-01-01,🆕
+1195,Alan Furst,Author,85,2026-01-01,🆕
+1196,Roscoe Mitchell,Composer,86,2025-01-03,▼47
+1197,Jo Ann Pflug,Actor,86,2025-01-03,▼47
+1198,Simon Langton (television director),Producer,85,2026-01-01,🆕
+1199,Richard Tuttle,Sculptor,85,2026-01-01,🆕
+1200,Frances Mayes,Novelist,86,2025-01-03,▼49
+1201,David Ackroyd,Actor,86,2025-01-03,▼49
+1202,Deanna Dunagan,Actor,86,2025-01-03,▼49
+1203,Howard Berman,Politician,85,2026-01-01,🆕
+1204,Gary K. Wolf,Writer,85,2026-01-01,🆕
+1205,Dr. Demento,Music,85,2026-01-01,🆕
+1206,George Smith (chemist),Chemist,85,2026-01-01,🆕
+1207,Alan Lowenthal,Politician,85,2026-01-01,🆕
+1208,Roy Marsden,Actor,85,2026-01-01,🆕
+1209,Dory Funk Jr.,Wrestler,85,2026-01-01,🆕
+1210,Philip Caputo,Journalist,85,2026-01-01,🆕
+1211,Ron Jones (teacher),Teacher,85,2026-01-01,🆕
