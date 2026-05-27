@@ -151,8 +151,10 @@ Laurence Tribe,Lawyer,85,2026-01-01
 Jennifer Warren,Actor,85,2026-01-01
 Lynn Hershman Leeson,Screenwriter,85,2026-01-01
 Marv Albert,Sport,85,2026-01-01
-Roy Harper (singer),Singer,85,2026-01-01
-John C. Malone,Billionaire,85,2026-01-01
+Chu Ching-wu,Physicist,85,2026-01-01
+George Smith (chemist),Chemist,85,2026-01-01
+Ronald Isley,Singer,85,2026-01-01
+Dory Funk Jr.,Wrestler,85,2026-01-01
 Jeffrey Moussaieff Masson,Writer,85,2026-01-01
 Annette Peacock,Pianist,85,2026-01-01
 Roy Marsden,Actor,85,2026-01-01
@@ -164,28 +166,26 @@ Mike Medavoy,Actor,85,2026-01-01
 Kevin Crossley-Holland,Writer,85,2026-01-01
 Marilyn Strathern,Anthropologist,85,2026-01-01
 Joel Cox,Film,85,2026-01-01
-Ronald Isley,Singer,85,2026-01-01
-George Smith (chemist),Chemist,85,2026-01-01
-Marc Norman,Screenwriter,85,2026-01-01
-Hank Marvin,Guitar,85,2026-01-01
-Lucille Roybal-Allard,Politician,85,2026-01-01
-Chu Ching-wu,Physicist,85,2026-01-01
-Dr. Demento,Music,85,2026-01-01
+Roy Harper (singer),Singer,85,2026-01-01
+John C. Malone,Billionaire,85,2026-01-01
 Gary K. Wolf,Writer,85,2026-01-01
-Harrison Page,Actor,85,2026-01-01
-Howard Berman,Politician,85,2026-01-01
-Aaron Neville,Singer,85,2026-01-01
-Nancy Farmer,Writer,85,2026-01-01
 Roger Taylor (tennis),Player,85,2026-01-01
-Dory Funk Jr.,Wrestler,85,2026-01-01
-Louise Sorel,Actor,86,2025-01-03
-Ernest Sosa,Philosopher,86,2025-01-03
-Jill St. John,Actor,86,2025-01-03
-Chris Menges,Film,86,2025-01-03
+Nancy Farmer,Writer,85,2026-01-01
+Aaron Neville,Singer,85,2026-01-01
+Howard Berman,Politician,85,2026-01-01
+Marc Norman,Screenwriter,85,2026-01-01
+Harrison Page,Actor,85,2026-01-01
+Dr. Demento,Music,85,2026-01-01
+Lucille Roybal-Allard,Politician,85,2026-01-01
+Hank Marvin,Guitar,85,2026-01-01
 Luis Valdez,Film,86,2025-01-03
 Don Nelson,Basket,86,2025-01-03
-Linda Gray,Actor,86,2025-01-03
 Donald Wuerl,Priest,86,2025-01-03
+Linda Gray,Actor,86,2025-01-03
+Ernest Sosa,Philosopher,86,2025-01-03
+Louise Sorel,Actor,86,2025-01-03
+Jill St. John,Actor,86,2025-01-03
+Chris Menges,Film,86,2025-01-03
 Michael Cook (historian),Historian,86,2025-01-03
 Stephen Kovacevich,Pianist,86,2025-01-03
 Lance Alworth,Football,86,2025-01-03
@@ -651,8 +651,8 @@ Matthew Meselson,Biologist,96,2024-01-03
 John G. Thompson,Mathematician,94,2024-01-03
 Herman Chernoff,Mathematician,103,2024-01-03
 Warren Beatty,Actor,89,2024-01-03
-Lee Meriwether,Actor,91,2024-01-03
 Constance Towers,Singer,93,2024-01-03
+Lee Meriwether,Actor,91,2024-01-03
 HÃ©ctor Elizondo,Actor,90,2024-01-03
 Caroline Graham,Screenwriter,95,2024-01-03
 James B. Harris,Film,98,2024-01-03
@@ -693,8 +693,8 @@ Barbara Feldon,Actress,93,2024-01-03
 Robert Silverberg,Screenwriter,91,2024-01-03
 Don DeLillo,Writer,90,2024-01-03
 David Lee (physicist),Physicist,95,2024-01-03
-Dana Scott,Mathematician,94,2024-01-03
 Anthony Kenny,Philosopher,95,2024-01-03
+Dana Scott,Mathematician,94,2024-01-03
 Leonard Kleinrock,Mathematician,92,2024-01-03
 Marilyn Horne,Singer,92,2024-01-03
 Dolores Huerta,Trade Union,96,2024-01-03
@@ -743,8 +743,8 @@ Anita Desai,Writer,89,2024-01-03
 John Standing,Actor,92,2024-01-03
 Ralph Bakshi,Film,88,2024-01-03
 Elizabeth Dole,Politician,90,2024-01-03
-Caldwell Esselstyn,Rower,93,2024-01-03
 Yuan T. Lee,Chemist,90,2024-01-03
+Caldwell Esselstyn,Rower,93,2024-01-03
 Tom Courtenay,Actor,89,2024-01-03
 Vladimir Posner,Journalist,92,2024-01-03
 Robert Paxton,Historian,94,2024-01-03
