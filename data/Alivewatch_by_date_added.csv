@@ -155,7 +155,6 @@ Matthew F. Leonetti,Cinema,85,2026-01-01
 Marv Albert,Sport,85,2026-01-01
 Marc Norman,Screenwriter,85,2026-01-01
 Roger Taylor (tennis),Player,85,2026-01-01
-Roy Marsden,Actor,85,2026-01-01
 Joel Cox,Film,85,2026-01-01
 Mike Medavoy,Actor,85,2026-01-01
 Michael Gorman (librarian),Librarian,85,2026-01-01
@@ -166,26 +165,27 @@ Hank Marvin,Guitar,85,2026-01-01
 Lucille Roybal-Allard,Politician,85,2026-01-01
 Kevin Crossley-Holland,Writer,85,2026-01-01
 Harrison Page,Actor,85,2026-01-01
-Aaron Neville,Singer,85,2026-01-01
 Michael Howard,Politician,85,2026-01-01
-Nancy Farmer,Writer,85,2026-01-01
-Dory Funk Jr.,Wrestler,85,2026-01-01
-"Bob Wilson (footballer, born 1941)",Football,85,2026-01-01
-Robert Foxworth,Actor,85,2026-01-01
-George Smith (chemist),Chemist,85,2026-01-01
-Robert Hass,Poet,85,2026-01-01
-David Parnas,Computer Scientist,85,2026-01-01
 Jerry Scheff,Music,85,2026-01-01
+Aaron Neville,Singer,85,2026-01-01
+Nancy Farmer,Writer,85,2026-01-01
+David Parnas,Computer Scientist,85,2026-01-01
+Dory Funk Jr.,Wrestler,85,2026-01-01
+Robert Hass,Poet,85,2026-01-01
+George Smith (chemist),Chemist,85,2026-01-01
+Robert Foxworth,Actor,85,2026-01-01
+"Bob Wilson (footballer, born 1941)",Football,85,2026-01-01
+Roy Marsden,Actor,85,2026-01-01
+Nancy Pelosi,Politician,86,2025-01-03
+James Cromwell,Actor,86,2025-01-03
 Fran Tarkenton,Football,86,2025-01-03
 Harry Northup,Actor,86,2025-01-03
-Leonard Susskind,Physicist,86,2025-01-03
 Kip Thorne,Physicist,86,2025-01-03
 Jack Nicklaus,Golf,86,2025-01-03
-Nancy Pelosi,Politician,86,2025-01-03
 Norman Spinrad,Writer,86,2025-01-03
 Thelma Schoonmaker,Film,86,2025-01-03
-James Cromwell,Actor,86,2025-01-03
 Philip Proctor,Actor,86,2025-01-03
+Leonard Susskind,Physicist,86,2025-01-03
 Robert Pinsky,Poet,86,2025-01-03
 Beth Fowler,Actor,86,2025-01-03
 Robin Cook (American novelist),Writer,86,2025-01-03
@@ -218,8 +218,8 @@ Louise Sorel,Actor,86,2025-01-03
 John Cornwell (writer),Novelist,86,2025-01-03
 Daniel Goldin,Politician,86,2025-01-03
 George Ritzer,Sociologist,86,2025-01-03
-Terry Gilliam,Film,86,2025-01-03
 Kenneth Binmore,Economist,86,2025-01-03
+Terry Gilliam,Film,86,2025-01-03
 Martin Sheen,Actor,86,2025-01-03
 Richard Edlund,Special Effects,86,2025-01-03
 Jill St. John,Actor,86,2025-01-03
@@ -678,9 +678,9 @@ Annie Proulx,Writer,91,2024-01-03
 Barbara Feldon,Actress,93,2024-01-03
 Robert Silverberg,Screenwriter,91,2024-01-03
 Douglas Wilder,Politician,95,2024-01-03
-Anthony Kenny,Philosopher,95,2024-01-03
-Richard Estes,Painter,94,2024-01-03
 Dana Scott,Mathematician,94,2024-01-03
+Richard Estes,Painter,94,2024-01-03
+Anthony Kenny,Philosopher,95,2024-01-03
 Leonard Kleinrock,Mathematician,92,2024-01-03
 Marilyn Horne,Singer,92,2024-01-03
 Dolores Huerta,Trade Union,96,2024-01-03
