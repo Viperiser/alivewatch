@@ -149,7 +149,7 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 148,Robert Silverberg,Screenwriter,91,2024-01-03,▲25
 149,Douglas Wilder,Politician,95,2024-01-03,▲25
 150,Don DeLillo,Writer,90,2024-01-03,▲25
-151,Dana Scott,Mathematician,94,2024-01-03,▲26
+151,Dana Scott,Mathematician,94,2024-01-03,▲25
 152,Leonard Kleinrock,Mathematician,92,2024-01-03,▲26
 153,Marilyn Horne,Singer,92,2024-01-03,▲26
 154,Dolores Huerta,Trade Union,96,2024-01-03,▲26
@@ -169,8 +169,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 168,James B. Harris,Film,98,2024-01-03,▲26
 169,Caroline Graham,Screenwriter,95,2024-01-03,▲26
 170,HÃ©ctor Elizondo,Actor,90,2024-01-03,▲26
-171,Lee Meriwether,Actor,91,2024-01-03,▲26
-172,Constance Towers,Singer,93,2024-01-03,▲26
+171,Lee Meriwether,Actor,91,2024-01-03,▲27
+172,Constance Towers,Singer,93,2024-01-03,▲25
 173,Warren Beatty,Actor,89,2024-01-03,▲26
 174,John G. Thompson,Mathematician,94,2024-01-03,▲26
 175,Harrison Schmitt,Geologist,91,2024-01-03,▲26
@@ -330,8 +330,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 329,Ted Nelson,Philosopher,89,2024-01-03,▲48
 330,Shirley Eaton,Actor,89,2024-01-03,▲48
 331,Frederic Raphael,Actor,95,2024-01-03,▲48
-332,Terry Gilliam,Film,86,2025-01-03,▲48
-333,Thea Musgrave,Composer,98,2024-01-03,▲48
+332,Terry Gilliam,Film,86,2025-01-03,▲49
+333,Thea Musgrave,Composer,98,2024-01-03,▲47
 334,Martin Sheen,Actor,86,2025-01-03,▲48
 335,Andrew Davies (writer),Screenwriter,90,2024-01-03,▲48
 336,Tom Jones (singer),Singer,86,2025-01-03,▲48
@@ -887,8 +887,8 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 886,Waris Hussein,Film,88,2024-01-03,▲2
 887,Ed Sanders,Music,87,2024-01-03,▲2
 888,Gene Chandler,Songwriter,89,2024-01-03,▲2
-889,John W. Snow,Politician,87,2024-01-03,▲3
-890,Carole Ann Ford,Actor,86,2025-01-03,▲1
+889,John W. Snow,Politician,87,2024-01-03,▲2
+890,Carole Ann Ford,Actor,86,2025-01-03,▲2
 891,Robin Knox-Johnston,Explorer,87,2024-01-03,▲2
 892,Vija Celmins,Painter,88,2024-01-03,▲2
 893,Doug Kershaw,Music,90,2024-01-03,▲2
@@ -1024,119 +1024,119 @@ Priority Rank,Name,Profession,Approximate Age,Date Added to Alivewatch,Change Si
 1023,Michael Edwards (literary scholar),Writer,88,2024-01-03,▼16
 1024,Bill Watts,Wrestler,87,2024-01-03,▼16
 1025,Helen Donath,Singer,86,2025-01-03,▼16
-1026,Philippe de Montebello,Art Historian,90,2024-01-03,▼15
-1027,Denis Noble,Biologist,90,2024-01-03,▼15
-1028,Ted Kaufman,Politician,87,2024-01-03,▼15
-1029,Michael Cook (historian),Historian,86,2025-01-03,▼15
+1026,Philippe de Montebello,Art Historian,90,2024-01-03,▼16
+1027,Denis Noble,Biologist,90,2024-01-03,▼16
+1028,Ted Kaufman,Politician,87,2024-01-03,▼16
+1029,Michael Cook (historian),Historian,86,2025-01-03,▼16
 1030,Peter Suschitzky,Cinema,85,2026-01-01,🆕
-1031,Lawrence Schiller,Film,90,2024-01-03,▼16
+1031,Lawrence Schiller,Film,90,2024-01-03,▼17
 1032,Jeffrey Moussaieff Masson,Writer,85,2026-01-01,🆕
-1033,Albert Mehrabian,Psychologist,87,2024-01-03,▼17
-1034,Arthur Jaffe,Mathematician,89,2024-01-03,▼17
-1035,Kim Weston,Singer,87,2024-01-03,▼17
+1033,Albert Mehrabian,Psychologist,87,2024-01-03,▼18
+1034,Arthur Jaffe,Mathematician,89,2024-01-03,▼18
+1035,Kim Weston,Singer,87,2024-01-03,▼18
 1036,Joel Cox,Film,85,2026-01-01,🆕
-1037,Bailey Howell,Basket,89,2024-01-03,▼18
+1037,Bailey Howell,Basket,89,2024-01-03,▼19
 1038,John C. Malone,Billionaire,85,2026-01-01,🆕
 1039,Marc Norman,Screenwriter,85,2026-01-01,🆕
-1040,Satch Sanders,Basket,88,2024-01-03,▼20
+1040,Satch Sanders,Basket,88,2024-01-03,▼21
 1041,Lucille Roybal-Allard,Politician,85,2026-01-01,🆕
-1042,Michael Fried,Art Historian,87,2024-01-03,▼21
+1042,Michael Fried,Art Historian,87,2024-01-03,▼22
 1043,Harrison Page,Actor,85,2026-01-01,🆕
-1044,Bennie Maupin,Clarinet,86,2025-01-03,▼22
-1045,Frank McLintock,Football,87,2024-01-03,▼22
+1044,Bennie Maupin,Clarinet,86,2025-01-03,▼23
+1045,Frank McLintock,Football,87,2024-01-03,▼23
 1046,Nancy Farmer,Writer,85,2026-01-01,🆕
-1047,Christina Crawford,Actor,87,2024-01-03,▼23
-1048,Richard D. Ryder,Psychologist,86,2025-01-03,▼23
+1047,Christina Crawford,Actor,87,2024-01-03,▼24
+1048,Richard D. Ryder,Psychologist,86,2025-01-03,▼24
 1049,Robert Hass,Poet,85,2026-01-01,🆕
-1050,Connie Mason,Actor,89,2024-01-03,▼24
-1051,Dan Burton,Politician,88,2024-01-03,▼24
-1052,Larry Bryggman,Actor,88,2024-01-03,▼24
-1053,Chuck Rainey,Music,86,2025-01-03,▼24
-1054,Bobby Rush (musician),Composer,86,2025-01-03,▼24
+1050,Connie Mason,Actor,89,2024-01-03,▼25
+1051,Dan Burton,Politician,88,2024-01-03,▼25
+1052,Larry Bryggman,Actor,88,2024-01-03,▼25
+1053,Chuck Rainey,Music,86,2025-01-03,▼25
+1054,Bobby Rush (musician),Composer,86,2025-01-03,▼25
 1055,John Hough (director),Film,85,2026-01-01,🆕
-1056,Peter Gerety,Actor,86,2025-01-03,▼25
-1057,Dave Obey,Politician,88,2024-01-03,▼25
+1056,Peter Gerety,Actor,86,2025-01-03,▼26
+1057,Dave Obey,Politician,88,2024-01-03,▼26
 1058,Tony Palmer,Film,85,2026-01-01,🆕
 1059,Charlie McCoy,Singer,85,2026-01-01,🆕
-1060,Billy Hart,Music,86,2025-01-03,▼27
-1061,Willie John McBride,Player,86,2025-01-03,▼27
-1062,Louis Hayes,Music,89,2024-01-03,▼27
-1063,David Aaker,Economist,88,2024-01-03,▼27
-1064,Jon Halliday,Historian,87,2024-01-03,▼27
-1065,Lucinda Childs,Choreographer,86,2025-01-03,▼27
-1066,David Broome,Jumper,86,2025-01-03,▼27
-1067,Gordon Milne,Football,89,2024-01-03,▼27
+1060,Billy Hart,Music,86,2025-01-03,▼28
+1061,Willie John McBride,Player,86,2025-01-03,▼28
+1062,Louis Hayes,Music,89,2024-01-03,▼28
+1063,David Aaker,Economist,88,2024-01-03,▼28
+1064,Jon Halliday,Historian,87,2024-01-03,▼28
+1065,Lucinda Childs,Choreographer,86,2025-01-03,▼28
+1066,David Broome,Jumper,86,2025-01-03,▼28
+1067,Gordon Milne,Football,89,2024-01-03,▼28
 1068,Gerry Bamman,Actor,85,2026-01-01,🆕
 1069,Marilyn Strathern,Anthropologist,85,2026-01-01,🆕
-1070,Stephen J. Lippard,Chemist,86,2025-01-03,▼28
-1071,Larry Bell (artist),Sculptor,87,2024-01-03,▼28
+1070,Stephen J. Lippard,Chemist,86,2025-01-03,▼29
+1071,Larry Bell (artist),Sculptor,87,2024-01-03,▼29
 1072,Annette Peacock,Pianist,85,2026-01-01,🆕
-1073,Ina May Gaskin,Midwife,86,2025-01-03,▼29
-1074,Richard Chew,Film,86,2025-01-03,▼29
+1073,Ina May Gaskin,Midwife,86,2025-01-03,▼30
+1074,Richard Chew,Film,86,2025-01-03,▼30
 1075,Stephen Krashen,Professor,85,2026-01-01,🆕
-1076,Clive Wearing,Conductor,88,2024-01-03,▼30
+1076,Clive Wearing,Conductor,88,2024-01-03,▼31
 1077,Jennifer Warren,Actor,85,2026-01-01,🆕
-1078,John Berendt,Writer,87,2024-01-03,▼31
-1079,Tom Meschery,Basket,88,2024-01-03,▼31
-1080,Robert Swindells,Writer,87,2024-01-03,▼31
+1078,John Berendt,Writer,87,2024-01-03,▼32
+1079,Tom Meschery,Basket,88,2024-01-03,▼32
+1080,Robert Swindells,Writer,87,2024-01-03,▼32
 1081,Jerry Scheff,Music,85,2026-01-01,🆕
-1082,James E. Gunn (astronomer),Astronomer,88,2024-01-03,▼32
-1083,Geoffrey Boycott,Cricket,86,2025-01-03,▼32
-1084,Ben Cayetano,Politician,87,2024-01-03,▼32
-1085,James Fargo,Film,88,2024-01-03,▼32
-1086,Harry Northup,Actor,86,2025-01-03,▼32
+1082,James E. Gunn (astronomer),Astronomer,88,2024-01-03,▼33
+1083,Geoffrey Boycott,Cricket,86,2025-01-03,▼33
+1084,Ben Cayetano,Politician,87,2024-01-03,▼33
+1085,James Fargo,Film,88,2024-01-03,▼33
+1086,Harry Northup,Actor,86,2025-01-03,▼33
 1087,Roger Taylor (tennis),Player,85,2026-01-01,🆕
 1088,Chu Ching-wu,Physicist,85,2026-01-01,🆕
 1089,Mike Medavoy,Actor,85,2026-01-01,🆕
-1090,Beth Fowler,Actor,86,2025-01-03,▼35
-1091,Taylor Wang,Astronaut,86,2025-01-03,▼35
-1092,Philip Proctor,Actor,86,2025-01-03,▼35
-1093,Tony Asher,Songwriter,87,2024-01-03,▼35
+1090,Beth Fowler,Actor,86,2025-01-03,▼36
+1091,Taylor Wang,Astronaut,86,2025-01-03,▼36
+1092,Philip Proctor,Actor,86,2025-01-03,▼36
+1093,Tony Asher,Songwriter,87,2024-01-03,▼36
 1094,Ronald Isley,Singer,85,2026-01-01,🆕
-1095,Arthur Elgort,Photographer,86,2025-01-03,▼36
+1095,Arthur Elgort,Photographer,86,2025-01-03,▼37
 1096,Martin Waddell,Writer,85,2026-01-01,🆕
 1097,John Steel (drummer),Music,85,2026-01-01,🆕
 1098,Norman Fairclough,Linguist,85,2026-01-01,🆕
-1099,Terry Paine,Football,87,2024-01-03,▼39
+1099,Terry Paine,Football,87,2024-01-03,▼40
 1100,Marv Albert,Sport,85,2026-01-01,🆕
-1101,Lance Alworth,Football,86,2025-01-03,▼39
-1102,Jake Holmes,Singer,87,2024-01-03,▼39
-1103,Paula Gosling,Novelist,87,2024-01-03,▼39
+1101,Lance Alworth,Football,86,2025-01-03,▼40
+1102,Jake Holmes,Singer,87,2024-01-03,▼40
+1103,Paula Gosling,Novelist,87,2024-01-03,▼40
 1104,Brian Holland,Singer,85,2026-01-01,🆕
-1105,Marco St. John,Actor,87,2024-01-03,▼40
+1105,Marco St. John,Actor,87,2024-01-03,▼41
 1106,Lawrence Foster,Conductor,85,2026-01-01,🆕
-1107,Stanley Mouse,Painter,86,2025-01-03,▼41
-1108,Roger Kellaway,Composer,87,2024-01-03,▼40
-1109,Thomas McGuane,Writer,87,2024-01-03,▼40
+1107,Stanley Mouse,Painter,86,2025-01-03,▼42
+1108,Roger Kellaway,Composer,87,2024-01-03,▼41
+1109,Thomas McGuane,Writer,87,2024-01-03,▼41
 1110,John De Andrea,Artist,85,2026-01-01,🆕
-1111,Stephen H. Burum,Cinema,87,2024-01-03,▼41
-1112,Michael Wadleigh,Film,87,2024-01-03,▼41
-1113,Penny Fuller,Actor,86,2025-01-03,▼41
+1111,Stephen H. Burum,Cinema,87,2024-01-03,▼42
+1112,Michael Wadleigh,Film,87,2024-01-03,▼42
+1113,Penny Fuller,Actor,86,2025-01-03,▼42
 1114,Eddie Daniels,Clarinet,85,2026-01-01,🆕
-1115,RubÃ©n Hinojosa,Politician,86,2025-01-03,▼41
+1115,RubÃ©n Hinojosa,Politician,86,2025-01-03,▼42
 1116,Matthew F. Leonetti,Cinema,85,2026-01-01,🆕
 1117,"Bob Wilson (footballer, born 1941)",Football,85,2026-01-01,🆕
 1118,David Parnas,Computer Scientist,85,2026-01-01,🆕
 1119,Kevin Crossley-Holland,Writer,85,2026-01-01,🆕
-1120,Ernest Sosa,Philosopher,86,2025-01-03,▼45
-1121,Louise Sorel,Actor,86,2025-01-03,▼45
+1120,Ernest Sosa,Philosopher,86,2025-01-03,▼46
+1121,Louise Sorel,Actor,86,2025-01-03,▼46
 1122,Michael Gorman (librarian),Librarian,85,2026-01-01,🆕
-1123,John Cornwell (writer),Novelist,86,2025-01-03,▼46
-1124,Daniel Goldin,Politician,86,2025-01-03,▼46
-1125,Kenneth Binmore,Economist,86,2025-01-03,▼46
-1126,Richard Edlund,Special Effects,86,2025-01-03,▼46
-1127,Wyche Fowler,Politician,86,2025-01-03,▼46
+1123,John Cornwell (writer),Novelist,86,2025-01-03,▼47
+1124,Daniel Goldin,Politician,86,2025-01-03,▼47
+1125,Kenneth Binmore,Economist,86,2025-01-03,▼47
+1126,Richard Edlund,Special Effects,86,2025-01-03,▼47
+1127,Wyche Fowler,Politician,86,2025-01-03,▼47
 1128,Delia Smith,Broadcast,85,2026-01-01,🆕
 1129,Lynn Hershman Leeson,Screenwriter,85,2026-01-01,🆕
 1130,Laurence Tribe,Lawyer,85,2026-01-01,🆕
 1131,Alan Furst,Author,85,2026-01-01,🆕
-1132,Roscoe Mitchell,Composer,86,2025-01-03,▼50
-1133,Jo Ann Pflug,Actor,86,2025-01-03,▼50
+1132,Roscoe Mitchell,Composer,86,2025-01-03,▼51
+1133,Jo Ann Pflug,Actor,86,2025-01-03,▼51
 1134,Simon Langton (television director),Producer,85,2026-01-01,🆕
 1135,Richard Tuttle,Sculptor,85,2026-01-01,🆕
-1136,Frances Mayes,Novelist,86,2025-01-03,▼52
-1137,David Ackroyd,Actor,86,2025-01-03,▼52
-1138,Deanna Dunagan,Actor,86,2025-01-03,▼52
+1136,Frances Mayes,Novelist,86,2025-01-03,▼53
+1137,David Ackroyd,Actor,86,2025-01-03,▼53
+1138,Deanna Dunagan,Actor,86,2025-01-03,▼53
 1139,Howard Berman,Politician,85,2026-01-01,🆕
 1140,Gary K. Wolf,Writer,85,2026-01-01,🆕
 1141,Dr. Demento,Music,85,2026-01-01,🆕
